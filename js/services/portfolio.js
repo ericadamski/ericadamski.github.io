@@ -1,4 +1,4 @@
-app.factory('portfolio', ['$https', function ($https) {
+app.factory('portfolio', ['$http', function ($http) {
   return $http.get('https://ericadamski.herokuapp.com/portfolio/my-portfolio.json')
          .success(function(data) {
            return data;
