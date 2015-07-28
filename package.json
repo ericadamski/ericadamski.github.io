@@ -7,7 +7,12 @@
     "start": "node bin/www"
   },
   "dependencies": {
-    "express": "~4.9.x"
+    "express": "~4.9.x",
+    "body-parser": "x",
+    "cookie-parser": "x",
+    "debug": "x",
+    "morgan": "x",
+    "serve-favicon": "x"
   },
   "engines": {
     "node": "0.12.2"
