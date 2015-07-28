@@ -1,5 +1,5 @@
 app.factory('portfolio', ['$http', function ($http) {
-  return $http.get('http://www.ericadamski.herokuapp.com/portfolio/my-portfolio.json')
+  return $http.get('http://ericadamski.herokuapp.com/portfolio/my-portfolio.json')
          .success(function(data) {
            return data;
          })
