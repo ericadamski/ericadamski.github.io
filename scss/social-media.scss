@@ -1,0 +1,76 @@
+$circle-size: 10vh;
+$circle-font-size: 5vh;
+
+.social-link {
+  color: white;
+  font-size: $circle-font-size;
+  background: #DB6E82;
+  border-radius:100%;
+  text-align:center;
+  text-decoration: none;
+  font-family:fontawesome;
+  position: relative;
+  display: inline-block;
+  width: $circle-size;
+  height: $circle-size;
+  padding-top:12px;
+  -o-transition:all .5s;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  transition: all .5s;
+  -webkit-font-smoothing: antialiased;
+
+  &:hover {
+    span {
+      color: white;
+      &::after,
+      &::before {
+        color: white;
+      }
+    }
+    background: #ef92a3;
+  }
+}
+
+.facebook {
+  background: #3b5998;
+  &:hover {
+    background: #496fbe;
+  }
+}
+
+.twitter {
+  background: #00aced;
+  &:hover {
+    background: #08b9fc;
+  }
+}
+
+.google-plus {
+  background: #dd4b39;
+  &:hover {
+    background: #f0513e;
+  }
+}
+
+.pinterest {
+  background: #cb2027;
+  &:hover {
+    background: #e6252d;
+  }
+}
+
+.codepen {
+  background: black;
+  color: white;
+  &:hover {
+    background: grey;
+  }
+}
+
+.linkedin {
+  background: #007bb6;
+  &:hover {
+    background: #0a8ac8;
+  }
+}

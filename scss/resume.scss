@@ -1,0 +1,100 @@
+.resume {
+  width: 80vw;
+  margin: 0 auto;
+
+  .heading {
+    font-weight: lighter;
+    border-bottom: 1px solid black;
+  }
+
+  .work-experience {
+    margin: auto 2vw;
+
+    .heading {
+      margin: 0 auto;
+    }
+
+    .title {
+      font-weight: normal;
+    }
+    .date {
+      font-weight: lighter;
+    }
+    .details {
+      font-size: 18px;
+    }
+  }
+
+  .education {
+    margin: auto 2vw;
+    display: inline-block;
+    vertical-align: top;
+
+    .school-container {
+      vertical-align: top;
+      display: inline-block;
+
+      a {
+        display: inline-block;
+        cursor: pointer;
+        text-decoration: none;
+        color: black;
+      }
+      .degree {
+        display: inline-block;
+        font-weight: 400;
+      }
+    }
+    .completed {
+
+    }
+  }
+  .skills {
+    display: inline-block;
+
+    .skill-details {
+      display: inline-block;
+      padding: 2vh 2vw;
+      width: 20vw;
+
+      @media screen and (max-width: 320px) {
+        display: block;
+        width: 80vw;
+      }
+
+      .skill-name {
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: lighter;
+      }
+      .progress {
+        max-width: 50vw;
+        min-width: 4em;
+      }
+    }
+  }
+  .references {
+    display: inline-block;
+
+    .contact-info {
+      display: inline-block;
+      padding: 2vh 2vw;
+      width: 20vw;
+
+      @media screen and (max-width: 320px) {
+        display: block;
+        width: 80vw;
+      }
+
+      .reference-name {
+      }
+      .position {
+        font-weight: lighter;
+      }
+      .company {
+      }
+      .phone {
+      }
+    }
+  }
+}

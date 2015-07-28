@@ -1,0 +1,134 @@
+body {
+  margin: 0; }
+
+.hide {
+  display: none; }
+
+.parallax-window {
+  max-height: 90vh;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 90vh; }
+
+.parallax-static-content {
+  color: white;
+  padding: 8em 0;
+  position: relative;
+  height: 90vh;
+  z-index: 9; }
+
+.parallax-background {
+  background: url("../imgs/IMG_9314.jpg") repeat;
+  background-position: top;
+  background-size: cover;
+  background-color: beige;
+  height: 180vh;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%; }
+
+.navbar {
+  border-radius: 0 !important;
+  margin-bottom: 0 !important;
+  height: 5vh;
+  top: -7vh !important;
+  background: rgba(0, 0, 0, 0.6);
+  transition: all .6s ease-in-out;
+  -webkit-transition: all .6s ease-in-out; }
+  @media screen and (max-width: 320px) {
+    .navbar {
+      top: 0 !important; } }
+  .navbar .navbar-brand {
+    position: absolute;
+    top: -7vh !important;
+    color: white;
+    margin-top: 0.41667vh;
+    font-size: 3vh;
+    font-weight: lighter;
+    transition: all .8s ease-in-out;
+    -webkit-transition: all .8s ease-in-out; }
+    @media screen and (max-width: 320px) {
+      .navbar .navbar-brand {
+        position: relative;
+        top: 0;
+        margin-top: 7vh; } }
+  .navbar .left {
+    top: 0;
+    left: 0;
+    height: 5vh;
+    position: absolute;
+    width: 35vw;
+    border-bottom: 3px solid white; }
+    @media screen and (max-width: 320px) {
+      .navbar .left {
+        display: none; } }
+    .navbar .left::after {
+      content: '';
+      width: 15vw; }
+  .navbar .right {
+    top: 0;
+    left: 65vw;
+    height: 5vh;
+    position: absolute;
+    border-bottom: 3px solid white;
+    width: 35vw; }
+    @media screen and (max-width: 320px) {
+      .navbar .right {
+        display: none; } }
+    .navbar .right::before {
+      content: '';
+      width: 15vw; }
+
+.main {
+  height: 130vh;
+  width: 100vw;
+  overflow-x: hidden; }
+
+.profile .profile-picture {
+  z-index: 3;
+  border: 3px solid white;
+  border-radius: 100% !important;
+  overflow: hidden;
+  height: 20em;
+  width: 20em;
+  margin: 0 auto; }
+  .profile .profile-picture img {
+    max-width: 30em;
+    max-height: 30em; }
+.profile .name {
+  z-index: 2;
+  padding: 5vh;
+  font-size: 5vh;
+  font-weight: lighter;
+  transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out; }
+
+.sticky-wrapper {
+  height: 20em;
+  width: 20em;
+  margin: 0 auto; }
+
+.portfolio {
+  text-align: center; }
+  .portfolio .title {
+    font-size: -webkit-xxx-large;
+    font-weight: lighter; }
+  .portfolio .info {
+    font-weight: 300;
+    border-bottom: 2px solid black;
+    width: 80vw;
+    margin: 0 auto; }
+    .portfolio .info::before, .portfolio .info::after {
+      content: ''; }
+  .portfolio .social-media-icons .details {
+    text-align: center; }
+  .portfolio .social-media-icons .icon {
+    padding: 10px;
+    padding-top: 5vh;
+    display: inline-block; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,62 @@
+.resume {
+  width: 80vw;
+  margin: 0 auto; }
+  .resume .heading {
+    font-weight: lighter;
+    border-bottom: 1px solid black; }
+  .resume .work-experience {
+    margin: auto 2vw; }
+    .resume .work-experience .heading {
+      margin: 0 auto; }
+    .resume .work-experience .title {
+      font-weight: normal; }
+    .resume .work-experience .date {
+      font-weight: lighter; }
+    .resume .work-experience .details {
+      font-size: 18px; }
+  .resume .education {
+    margin: auto 2vw;
+    display: inline-block;
+    vertical-align: top; }
+    .resume .education .school-container {
+      vertical-align: top;
+      display: inline-block; }
+      .resume .education .school-container a {
+        display: inline-block;
+        cursor: pointer;
+        text-decoration: none;
+        color: black; }
+      .resume .education .school-container .degree {
+        display: inline-block;
+        font-weight: 400; }
+  .resume .skills {
+    display: inline-block; }
+    .resume .skills .skill-details {
+      display: inline-block;
+      padding: 2vh 2vw;
+      width: 20vw; }
+      @media screen and (max-width: 320px) {
+        .resume .skills .skill-details {
+          display: block;
+          width: 80vw; } }
+      .resume .skills .skill-details .skill-name {
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: lighter; }
+      .resume .skills .skill-details .progress {
+        max-width: 50vw;
+        min-width: 4em; }
+  .resume .references {
+    display: inline-block; }
+    .resume .references .contact-info {
+      display: inline-block;
+      padding: 2vh 2vw;
+      width: 20vw; }
+      @media screen and (max-width: 320px) {
+        .resume .references .contact-info {
+          display: block;
+          width: 80vw; } }
+      .resume .references .contact-info .position {
+        font-weight: lighter; }
+
+/*# sourceMappingURL=resume.css.map */

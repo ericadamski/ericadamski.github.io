@@ -1,0 +1,53 @@
+{
+  "name": "Eric Adamski",
+  "profilePicturePath": "imgs/face.jpg",
+  "socialMedia": [
+    {
+      "type" : "email",
+      "url"  : "mailto:er.adamski@gmail.com",
+      "class": ["fa", "fa-envelope-o"]
+    },
+    {
+      "type" : "facebook",
+      "url"  : "https://www.facebook.com/wikkidoo",
+      "class": ["fa", "fa-facebook"],
+      "parentClass": ["facebook"]
+    },
+    {
+      "type" : "twitter",
+      "url"  : "https://twitter.com/wikkidoo",
+      "class": ["fa", "fa-twitter"],
+      "parentClass": ["twitter"]
+    },
+    {
+      "type" : "google+",
+      "url"  : "https://plus.google.com/+EricAdamski",
+      "class": ["fa", "fa-google-plus"],
+      "parentClass": ["google-plus"]
+    },
+    {
+      "type" : "pinterest",
+      "url"  : "https://www.pinterest.com/eradamski/",
+      "class": ["fa", "fa-pinterest"],
+      "parentClass": ["pinterest"]
+    },
+    {
+      "type" : "phone",
+      "url"  : "tel:+16138895298",
+      "class": ["fa", "fa-phone"],
+      "parentClass": []
+    },
+    {
+      "type" : "linkedin",
+      "url"  : "https://ca.linkedin.com/pub/eric-adamski/55/105/57",
+      "class": ["fa", "fa-linkedin"],
+      "parentClass": ["linkedin"]
+    },
+    {
+      "type" : "codepen",
+      "url"  : "http://codepen.io/ericadamski/",
+      "class": ["fa", "fa-codepen"],
+      "parentClass": ["codepen"]
+    }
+  ]
+}

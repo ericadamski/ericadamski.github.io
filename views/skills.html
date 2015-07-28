@@ -1,0 +1,10 @@
+<!-- for resume -->
+<h2 class="skill-name">{{ info.skill }}</h2>
+<label> Proficiency </label>
+<div class="progress">
+  <div class="progress-bar progress-bar-info"
+  role="progressbar" aria-valuenow="{{ info.proficiency }}"
+  aria-valuemin="0" aria-valuemax="10" style="width: {{ info.proficiency }}0%">
+    {{ info.proficiency }}/10
+  </div>
+</div>
