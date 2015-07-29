@@ -11,6 +11,8 @@ $shrink: 820px;
 
 body {
   margin: 0;
+  overflow-y: scroll; /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
 }
 
 .hide {
