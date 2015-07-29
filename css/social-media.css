@@ -10,12 +10,24 @@
   display: inline-block;
   width: 10vh;
   height: 10vh;
+  min-height: 5vw;
+  min-width: 5vw;
   padding-top: 12px;
   -o-transition: all .5s;
   -webkit-transition: all .5s;
   -moz-transition: all .5s;
   transition: all .5s;
   -webkit-font-smoothing: antialiased; }
+  @media screen and (max-width: 360px) {
+    .social-link {
+      font-size: 5vh !important;
+      height: 10vh !important;
+      width: 10vh !important; } }
+  @media screen and (max-width: 820px) {
+    .social-link {
+      font-size: 4vw;
+      height: 10vw;
+      width: 10vw; } }
   .social-link:hover {
     background: #ef92a3; }
     .social-link:hover span {

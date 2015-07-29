@@ -1,6 +1,9 @@
 $circle-size: 10vh;
 $circle-font-size: 5vh;
 
+$min-circle-font-size: 4vw;
+$min-circle-size: 5vw;
+
 .social-link {
   color: white;
   font-size: $circle-font-size;
@@ -13,12 +16,26 @@ $circle-font-size: 5vh;
   display: inline-block;
   width: $circle-size;
   height: $circle-size;
+  min-height: $min-circle-size;
+  min-width: $min-circle-size;
   padding-top:12px;
   -o-transition:all .5s;
   -webkit-transition: all .5s;
   -moz-transition: all .5s;
   transition: all .5s;
   -webkit-font-smoothing: antialiased;
+
+  @media screen and (max-width: 360px) {
+    font-size: $circle-font-size !important;
+    height: 10vh !important;
+    width: 10vh !important;
+  }
+
+  @media screen and (max-width: 820px) {
+    font-size: $min-circle-font-size;
+    height: 10vw;
+    width: 10vw;
+  }
 
   &:hover {
     span {

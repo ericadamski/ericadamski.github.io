@@ -1,5 +1,6 @@
 app.factory('portfolio', ['$http', function ($http) {
-  return $http.get('https://ericadamski.herokuapp.com/portfolio/my-portfolio.json')
+  var base = 'https://ericadamski.herokuapp.com';//"http://192.168.1.230:3000"; /*https://ericadamski.herokuapp.com*/
+  return $http.get(base + '/portfolio/my-portfolio.json')
          .success(function(data) {
            return data;
          })

@@ -35,53 +35,22 @@ body {
   border-radius: 0 !important;
   margin-bottom: 0 !important;
   height: 5vh;
-  top: -7vh !important;
+  top: 0;
   background: rgba(0, 0, 0, 0.6);
   transition: all .6s ease-in-out;
   -webkit-transition: all .6s ease-in-out; }
-  @media screen and (max-width: 320px) {
-    .navbar {
-      top: 0 !important; } }
   .navbar .navbar-brand {
-    position: absolute;
-    top: -7vh !important;
     color: white;
-    margin-top: 0.41667vh;
     font-size: 3vh;
     font-weight: lighter;
+    position: relative;
+    top: 0;
+    margin-top: 1vh;
     transition: all .8s ease-in-out;
     -webkit-transition: all .8s ease-in-out; }
-    @media screen and (max-width: 320px) {
+    @media screen and (max-width: 820px) {
       .navbar .navbar-brand {
-        position: relative;
-        top: 0;
-        margin-top: 7vh; } }
-  .navbar .left {
-    top: 0;
-    left: 0;
-    height: 5vh;
-    position: absolute;
-    width: 35vw;
-    border-bottom: 3px solid white; }
-    @media screen and (max-width: 320px) {
-      .navbar .left {
-        display: none; } }
-    .navbar .left::after {
-      content: '';
-      width: 15vw; }
-  .navbar .right {
-    top: 0;
-    left: 65vw;
-    height: 5vh;
-    position: absolute;
-    border-bottom: 3px solid white;
-    width: 35vw; }
-    @media screen and (max-width: 320px) {
-      .navbar .right {
-        display: none; } }
-    .navbar .right::before {
-      content: '';
-      width: 15vw; }
+        font-size: 5vw; } }
 
 .main {
   height: 130vh;
@@ -97,6 +66,7 @@ body {
   width: 20em;
   margin: 0 auto; }
   .profile .profile-picture img {
+    margin-left: -100px;
     max-width: 30em;
     max-height: 30em; }
 .profile .name {

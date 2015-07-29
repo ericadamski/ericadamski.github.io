@@ -3,14 +3,16 @@ $anim-speed: 0.3s;
 $card-height: 30vh;
 $card-width: 30vw;
 
+$shrink: 820px;
+
 .cards {
   display: inline-block;
   padding: 3vh;
   vertical-align: middle;
 	text-align: center;
 
-  @media screen and (max-width: 320px) {
-    width: 80vw;
+  @media screen and (max-width: $shrink) {
+    width: 100vw;
     display: block;
   }
 
@@ -25,8 +27,8 @@ $card-width: 30vw;
     border-radius: 100%;
     font-size: 126px;
 
-    @media screen and (max-width: 320px) {
-      font-size: 92px;
+    @media screen and (max-width: $shrink) {
+      font-size: $shrink / 7;
     }
 
     transition: all .4s ease-in-out;
@@ -35,6 +37,7 @@ $card-width: 30vw;
 
 	.card {
     height: $card-height;
+    min-height: $card-width;
     width: $card-width;
 
     display: inline-block;
@@ -46,7 +49,7 @@ $card-width: 30vw;
 		border-radius: 3px;
 		box-shadow: 0 0 20px 0 rgba(0,0,0,.05);
 
-    @media screen and (max-width: 320px) {
+    @media screen and (max-width: $shrink) {
       width: 80vw;
     }
 
@@ -69,9 +72,10 @@ $card-width: 30vw;
       background: repeat;
       height: $card-height;
       width: $card-width;
+      min-height: $card-width;
 
-      @media screen and (max-width: 320px) {
-        width: 80vw;
+      @media screen and (max-width: $shrink) {
+        width: 100vw;
       }
 
       transition: all .4s ease-in-out;

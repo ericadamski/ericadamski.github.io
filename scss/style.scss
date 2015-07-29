@@ -7,6 +7,8 @@ $header-border: 3px solid white;
 $parallax-window-height: 90vh;
 $parallax-background-height: $parallax-window-height * 2;
 
+$shrink: 820px;
+
 body {
   margin: 0;
 }
@@ -51,67 +53,27 @@ body {
 
   height: $header-height;
 
-  top: -$header-height - 2vh !important;
+  top: 0;
 
   background: rgba(0,0,0,0.6);
   transition: all .6s ease-in-out;
   -webkit-transition: all .6s ease-in-out;
 
-  @media screen and (max-width: 320px) {
-    top: 0 !important;
-  }
-
 
   .navbar-brand {
-    position: absolute;
-    top: -$header-height - 2vh !important;
     color: white;
-    margin-top: $header-height / 12;
     font-size: $header-height - 2vh;
     font-weight: lighter;
 
-    @media screen and (max-width: 320px) {
-      position: relative;
-      top: 0;
-      margin-top: $header-height + 2vh;
-    }
+    position: relative;
+    top: 0;
+    margin-top: $header-height / 5;
 
     transition: all .8s ease-in-out;
     -webkit-transition: all .8s ease-in-out;
-  }
 
-  .left {
-    top: 0;
-    left: 0;
-    height: $header-height;
-    position: absolute;
-    width: 35vw;
-    border-bottom: $header-border;
-
-    @media screen and (max-width: 320px) {
-      display: none;
-    }
-
-    &::after {
-      content: '';
-      width: 15vw;
-    }
-  }
-  .right {
-    top: 0;
-    left: 65vw;
-    height: $header-height;
-    position: absolute;
-    border-bottom: $header-border;
-    width: 35vw;
-
-    @media screen and (max-width: 320px) {
-      display: none;
-    }
-
-    &::before {
-      content: '';
-      width: 15vw;
+    @media screen and (max-width: $shrink) {
+      font-size: 5vw;
     }
   }
 }
@@ -135,6 +97,7 @@ body {
     margin: 0 auto;
 
     img {
+      margin-left: -100px;
       max-width: 30em;
       max-height: 30em;
     }

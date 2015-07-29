@@ -28,21 +28,6 @@ function handleHeader (direction) {
     elm.transition({'opacity':'0', 'scale':'0.5'}).removeClass('is-down');
   else
     elm.transition({'opacity':'1', 'scale':'1'}).addClass('is-down');
-
-  var nav = $(".navbar");
-  if (nav.hasClass('is-down'))
-    nav.transition(
-      {'y':'-7vh'}).removeClass('is-down');
-  else
-    nav.transition(
-      {'y': '7vh'}).addClass('is-down');
-
-  var topElm = $(".navbar-brand");
-  if (topElm.hasClass('is-down'))
-    topElm.transition(
-      {'y': '-7vh'}).removeClass('is-down');
-  else
-    topElm.transition({'y': '7vh'}).addClass('is-down');
 }
 
 if (!isMobile.any())

@@ -1,3 +1,6 @@
+$shrink: 820px;
+$mobile-shrink: 360px;
+
 .resume {
   width: 80vw;
   margin: 0 auto;
@@ -57,8 +60,7 @@
       padding: 2vh 2vw;
       width: 20vw;
 
-      @media screen and (max-width: 320px) {
-        display: block;
+      @media screen and (max-width: $shrink) {
         width: 80vw;
       }
 
@@ -81,8 +83,7 @@
       padding: 2vh 2vw;
       width: 20vw;
 
-      @media screen and (max-width: 320px) {
-        display: block;
+      @media screen and (max-width: $shrink) {
         width: 80vw;
       }
 
