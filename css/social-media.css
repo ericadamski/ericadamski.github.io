@@ -1,6 +1,6 @@
 .social-link {
   color: white;
-  font-size: 5%;
+  font-size: 250%;
   background: #DB6E82;
   border-radius: 100%;
   text-align: center;
@@ -20,7 +20,7 @@
   -webkit-font-smoothing: antialiased; }
   @media screen and (max-width: 360px) {
     .social-link {
-      font-size: 5% !important;
+      font-size: 250% !important;
       height: 10% !important;
       width: 10% !important; } }
   @media screen and (max-width: 820px) {
