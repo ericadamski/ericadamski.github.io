@@ -1,9 +1,16 @@
 .resume {
   width: 80vw;
   margin: 0 auto; }
+  .resume .accordion-toggle {
+    text-decoration: none; }
   .resume .heading {
     font-weight: lighter;
-    border-bottom: 1px solid black; }
+    border-bottom: 1px solid black;
+    color: black; }
+    .resume .heading .arrow {
+      font-size: 20px;
+      transition: all .6s ease-in-out;
+      -webkit-transition: all .6s ease-in-out; }
   .resume .work-experience {
     margin: auto 2vw; }
     .resume .work-experience .heading {

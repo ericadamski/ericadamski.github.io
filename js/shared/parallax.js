@@ -1,30 +1,54 @@
-$(document).ready(function() {
-  if ($("#js-parallax-window").length) {
-    parallax();
-  }
+$(function() {
+  var collapseList = [
+    "#work",
+    "#education",
+    "#skills",
+    "#references"
+  ];
+
+  for( var string in collapseList )
+    $(string).removeClass('in');
+
+  function changeArrow(elementId, direction) {
+    if (direction == "show")
+    {
+      $(elementId).transition({rotate: "0deg"});
+    }
+    else
+    {
+      $(elementId).transition({rotate: "-90deg"});
+    }
+  };
+
+  $("#work").on('show.bs.collapse', function() {
+    changeArrow('#work-arrow', 'show');
+  });
+
+  $("#work").on('hide.bs.collapse', function() {
+    changeArrow('#work-arrow', 'hide');
+  });
+
+  $("#education").on('show.bs.collapse', function() {
+    changeArrow('#education-arrow', 'show');
+  });
+
+  $("#education").on('hide.bs.collapse', function() {
+    changeArrow('#education-arrow', 'hide');
+  });
+
+  $("#skills").on('show.bs.collapse', function() {
+    changeArrow('#skills-arrow', 'show');
+  });
+
+  $("#skills").on('hide.bs.collapse', function() {
+    changeArrow('#skills-arrow', 'hide');
+  });
+
+  $("#references").on('show.bs.collapse', function() {
+    changeArrow('#references-arrow', 'show');
+  });
+
+  $("#references").on('hide.bs.collapse', function() {
+    changeArrow('#references-arrow', 'hide');
+  });
 });
-
-$(window).scroll(function(e) {
-  if ($("#js-parallax-window").length) {
-    parallax();
-  }
-});
-
-function parallax(){
-  if( $("#js-parallax-window").length > 0 ) {
-    var plxBackground = $("#js-parallax-background");
-    var plxWindow = $("#js-parallax-window");
-
-    var plxWindowTopToPageTop = $(plxWindow).offset().top;
-    var windowTopToPageTop = $(window).scrollTop();
-    var plxWindowTopToWindowTop = plxWindowTopToPageTop - windowTopToPageTop;
-
-    var plxBackgroundTopToPageTop = $(plxBackground).offset().top;
-    var windowInnerHeight = window.innerHeight;
-    var plxBackgroundTopToWindowTop = plxBackgroundTopToPageTop - windowTopToPageTop;
-    var plxBackgroundTopToWindowBottom = windowInnerHeight - plxBackgroundTopToWindowTop;
-    var plxSpeed = 0.35;
-
-    plxBackground.css('top', - (plxWindowTopToWindowTop * plxSpeed) + 'px');
-  }
-}

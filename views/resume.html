@@ -1,3 +1,8 @@
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand">Eric Adamski</a>
+  </div>
+</div>
 <div class="main">
   <div id="js-parallax-window" class="parallax-window">
     <div class="parallax-static-content">
@@ -5,33 +10,57 @@
     </div>
     <div id="js-parallax-background" class="parallax-background"></div>
   </div>
-  <div class="resume">
+  <div class="resume accordion">
     <!-- Work Experience -->
-    <h1 class="heading">Work Experience</h1>
-    <div class="work-experience">
-      <div ng-repeat="work in resume.workExperience">
-        <work-experience info="work"></work-experience>
+    <div class="accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent=".resume" href="/resume/#work"><h1 class="heading">Work Experience  <span id="work-arrow" class="arrow glyphicon glyphicon-menu-down"></span></h1></a>
+      </div>
+      <div id="work" class="accordion-body collapse in">
+        <div class="work-experience accordion-inner">
+          <div ng-repeat="work in resume.workExperience">
+            <work-experience info="work"></work-experience>
+          </div>
+        </div>
       </div>
     </div>
     <!-- Education -->
-    <h1 class="heading">Education</h1>
-    <div class="education">
-      <div ng-repeat="education in resume.educations">
-        <education info="education"></education>
+    <div class="accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent=".resume" href="/resume/#education"><h1 class="heading">Education  <span id="education-arrow" class="arrow glyphicon glyphicon-menu-down"></span></h1></a>
+      </div>
+    </div>
+    <div id="education" class="accordion-body collapse in">
+      <div class="education accordion-inner">
+        <div ng-repeat="education in resume.educations">
+          <education info="education"></education>
+        </div>
       </div>
     </div>
     <!-- Skills -->
-    <h1 class="heading">Skills</h1>
-    <div class="skills">
-      <div class="skill-details" ng-repeat="skill in resume.skills">
-        <skill info="skill"></skill>
+    <div class="accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse in" data-parent=".resume" href="/resume/#skills"><h1 class="heading">Skills  <span id="skills-arrow" class="arrow glyphicon glyphicon-menu-down"></span></h1></a>
+      </div>
+    </div>
+    <div id="skills" class="accordion-body collapse in">
+      <div class="skills accodian-inner">
+        <div class="skill-details" ng-repeat="skill in resume.skills">
+          <skill info="skill"></skill>
+        </div>
       </div>
     </div>
     <!-- Contacts -->
-    <h1 class="heading">References</h1>
-    <div class="references">
-      <div class="contact-info" ng-repeat="contact in resume.references">
-        <reference info="contact"></reference>
+    <div class="accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent=".resume" href="/resume/#references"><h1 class="heading">References <span id="references-arrow" class="arrow glyphicon glyphicon-menu-down"></span></h1></a>
+      </div>
+    </div>
+    <div id="references" class="accordion-body collapse in">
+      <div class="references accordion-inner">
+        <div class="contact-info" ng-repeat="contact in resume.references">
+          <reference info="contact"></reference>
+        </div>
       </div>
     </div>
   </div>

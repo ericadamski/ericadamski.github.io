@@ -2,6 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <title>Eric Adamski</title>
+    <meta name="description" content="My own personal web page with my resumé and code for all to enjoy!">
+    <link rel=”author” href=”https://plus.google.com/+EricAdamski“/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="css/style.css" rel="stylesheet" />
@@ -13,6 +16,21 @@
     <link
       rel="stylesheet"
       href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <script type="application/ld+json">
+      { "@context" : "http://www.ericadamski.com",
+        "@type" : "personal",
+        "name" : "Eric Adamski",
+        "url" : "http://www.ericadamski.com",
+        "logo": "http://www.ericadamski.com/imgs/face.jpg"
+      }
+    </script>
+
+    <div itemscope itemtype="http://data-vocabulary.org/Breadcrumb" style="display: none;">
+      <a href="http://www.ericadamski.com/#/resume" itemprop="url">
+        <span itemprop="title">Resumé</span>
+      </a>
+    </div>
 
     <!-- JQuery -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -30,7 +48,8 @@
     <!-- Bootstrap -->
     <link
       rel="stylesheet"
-      href="bower_components/bootstrap/dist/css/bootstrap.min.css"></script>
+      href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
@@ -41,17 +60,6 @@
     <script src="bower_components/angular-route/angular-route.min.js"></script>
   </head>
   <body ng-app="MyPage">
-
-    <div class="navbar navbar-fixed-top">
-      <div class="container-fluid">
-        <a class="navbar-brand">Eric Adamski</a>
-        <div class="left">
-        </div>
-        <div class="right">
-        </div>
-      </div>
-    </div>
-
     <div ng-view>
     </div>
 

@@ -5,9 +5,21 @@ $mobile-shrink: 360px;
   width: 80vw;
   margin: 0 auto;
 
+  .accordion-toggle {
+    text-decoration: none;
+  }
+
   .heading {
     font-weight: lighter;
     border-bottom: 1px solid black;
+    color: black;
+
+    .arrow {
+      font-size: 20px;
+
+      transition: all .6s ease-in-out;
+      -webkit-transition: all .6s ease-in-out;
+    }
   }
 
   .work-experience {

@@ -1,10 +1,10 @@
-$home-height: 100vh;
+$home-height: 100%;
 $home-width: 100vw;
 
-$header-height: 5vh;
+$header-height: 5%;
 $header-border: 3px solid white;
 
-$parallax-window-height: 90vh;
+$parallax-window-height: 90%;
 $parallax-background-height: $parallax-window-height * 2;
 
 $shrink: 820px;
@@ -53,9 +53,8 @@ body {
   border-radius: 0 !important;
   margin-bottom: 0 !important;
 
-  height: $header-height;
-
-  top: 0;
+  height: auto;
+  width: 100vw;
 
   background: rgba(0,0,0,0.6);
   transition: all .6s ease-in-out;
@@ -64,12 +63,10 @@ body {
 
   .navbar-brand {
     color: white;
-    font-size: $header-height - 2vh;
+    font-size: 40px;
     font-weight: lighter;
 
     position: relative;
-    top: 0;
-    margin-top: $header-height / 5;
 
     transition: all .8s ease-in-out;
     -webkit-transition: all .8s ease-in-out;
@@ -81,7 +78,7 @@ body {
 }
 
 .main {
-  height: $home-height + $parallax-window-height / 3;
+  height: $home-height;
   width: $home-width;
 
   overflow-x: hidden;
@@ -106,8 +103,8 @@ body {
   }
   .name {
     z-index: 2;
-    padding: 5vh;
-    font-size: 5vh;
+    padding: 5%;
+    font-size: 250%;
     font-weight: lighter;
 
     transition: all .4s ease-in-out;
@@ -147,7 +144,7 @@ body {
 
     .icon {
       padding: 10px;
-      padding-top: 5vh;
+      padding-top: 5%;
       display: inline-block;
     }
   }

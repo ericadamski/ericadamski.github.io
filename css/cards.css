@@ -1,6 +1,6 @@
 .cards {
   display: inline-block;
-  padding: 3vh;
+  padding: 3%;
   vertical-align: middle;
   text-align: center; }
   @media screen and (max-width: 820px) {
@@ -23,7 +23,7 @@
       .cards .logo {
         font-size: 117.14286px; } }
   .cards .card {
-    height: 30vh;
+    height: 30%;
     min-height: 30vw;
     width: 30vw;
     display: inline-block;
@@ -52,7 +52,7 @@
     .cards .card .img {
       display: inline-block;
       background: repeat;
-      height: 30vh;
+      height: 30%;
       width: 30vw;
       min-height: 30vw;
       transition: all .4s ease-in-out;
@@ -95,7 +95,7 @@
     .cards .card:hover span {
       top: 0; }
     .cards .card:hover .logo {
-      transform: translateY(-50vh); }
+      transform: translateY(-50%); }
     .cards .card:hover .title {
       transition-delay: 0.15s; }
     .cards .card:hover .info {

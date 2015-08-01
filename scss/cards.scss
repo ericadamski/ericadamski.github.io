@@ -1,13 +1,13 @@
 $anim-speed: 0.3s;
 
-$card-height: 30vh;
+$card-height: 30%;
 $card-width: 30vw;
 
 $shrink: 820px;
 
 .cards {
   display: inline-block;
-  padding: 3vh;
+  padding: 3%;
   vertical-align: middle;
 	text-align: center;
 
@@ -133,7 +133,7 @@ $shrink: 820px;
 			}
 
       .logo {
-        transform: translateY(-50vh);
+        transform: translateY(-50%);
       }
 
 			.title {
