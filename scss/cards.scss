@@ -10,35 +10,45 @@ $shrink: 820px;
   padding: 3%;
   vertical-align: middle;
 	text-align: center;
+  position: relative;
 
   @media screen and (max-width: $shrink) {
     width: 100vw;
     display: block;
   }
 
-  .logo {
-    z-index: 10;
-    color: white;
+  .logo-container {
     position: absolute;
-    top: 25%;
-    left: 35%;
-    margin: 0 auto;
-    background: transparent;
-    border-radius: 100%;
-    font-size: 126px;
+    left: 50%;
+    bottom: 30%;
 
-    @media screen and (max-width: $shrink) {
-      font-size: $shrink / 7;
+    .logo {
+      z-index: 100;
+      color: white;
+      position: relative;
+      background: transparent;
+
+      left: -50%;
+      bottom: -30%;
+
+      border-radius: 100%;
+      font-size: 1000%;
+
+      @media screen and (max-width: $shrink) {
+        font-size: 750%;
+      }
+
+      transition: all .4s ease-in-out;
+      -webkit-transition: all .4s ease-in-out;
     }
-
-    transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
   }
 
 	.card {
     height: $card-height;
     min-height: $card-width;
     width: $card-width;
+
+    text-decoration: none;
 
     display: inline-block;
 		margin: 10px;
@@ -51,6 +61,7 @@ $shrink: 820px;
 
     @media screen and (max-width: $shrink) {
       width: 80vw;
+      height: 80vw;
     }
 
 		&:before {
@@ -76,6 +87,7 @@ $shrink: 820px;
 
       @media screen and (max-width: $shrink) {
         width: 100vw;
+        height: 100vw;
       }
 
       transition: all .4s ease-in-out;
@@ -83,6 +95,8 @@ $shrink: 820px;
 		}
 
 		.details {
+      max-height: 50%;
+      height: 50%;
 			font-size: 16px;
       font-weight: lighter;
 			padding: 20px;
@@ -133,7 +147,8 @@ $shrink: 820px;
 			}
 
       .logo {
-        transform: translateY(-50%);
+        transform: translateY(-500%);
+        text-decoration: none;
       }
 
 			.title {

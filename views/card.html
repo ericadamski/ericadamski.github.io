@@ -1,7 +1,9 @@
 <a class="card" ng-href="{{ info.url }}">
   <div class="img" ng-style="{{ info.backgroundStyle }}">
   </div>
-  <span class="logo" ng-class="{{ info.logoClass }}"></span>
+  <div class="logo-container">
+    <div class="logo" ng-class="{{ info.logoClass }}"></div>
+  </div>
   <div class="details">
     <span class="title">{{ info.title }}</span>
     <span class="info">{{ info.info }}</span>

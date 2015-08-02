@@ -1,4 +1,4 @@
-$circle-size: 10%;
+$circle-size: auto;
 $circle-font-size: 250%;
 
 $min-circle-font-size: 4vw;
@@ -27,8 +27,8 @@ $min-circle-size: 5vw;
 
   @media screen and (max-width: 360px) {
     font-size: $circle-font-size !important;
-    height: 10% !important;
-    width: 10% !important;
+    height: 20vw !important;
+    width: 20vw !important;
   }
 
   @media screen and (max-width: 820px) {
