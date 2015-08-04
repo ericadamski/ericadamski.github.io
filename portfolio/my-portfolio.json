@@ -3,7 +3,7 @@
     "info": "All the projects I have done over the years; some finished, some not. They are all open-source take a look and enjoy!",
     "title": "My Code",
     "url": "http://www.github.com/ericadamski",
-    "backgroundStyle": "{'background': 'url(\"imgs/code.jpg\") repeat'}",
+    "backgroundStyle": "{'background': 'url(\"img/code.jpg\") repeat'}",
     "logoClass":["mega-octicon", "octicon-mark-github"]
   },
   "Resume":{
@@ -11,7 +11,7 @@
     "title": "My Resume",
     "url": "#/resume",
     "backgroundStyle":
-      "{'background': 'url(\"imgs/notebook/notebook_@2X.png\") repeat'}",
+      "{'background': 'url(\"img/notebook/notebook_@2X.png\") repeat'}",
     "logoClass":["mega-octicon", "octicon-file-text"]
   }
 }
