@@ -25,7 +25,7 @@ app.use('/bower_components',
   express.static(path.join(__dirname, '..', '..', 'bower_components')));
 app.use('/js', express.static(path.join(__dirname, '..', '..', 'js')));
 app.use('/views', express.static(path.join(__dirname, '..', '..', 'views')));
-app.use('/imgs', express.static(path.join(__dirname, '..', '..', 'img')));
+app.use('/img', express.static(path.join(__dirname, '..', '..', 'img')));
 app.use('/portfolio',
   express.static(path.join(__dirname, '..', '..', 'portfolio')));
 
