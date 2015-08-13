@@ -25,6 +25,8 @@ app.use('/views', express.static(path.join(__dirname, '..', '..', 'views')));
 app.use('/img', express.static(path.join(__dirname, '..', '..', 'img')));
 app.use('/portfolio',
   express.static(path.join(__dirname, '..', '..', 'portfolio')));
+app.use('/marking',
+  express.static(path.join(__dirname, '..', '..', 'marking')));
 
 app.use('/', routes);
 

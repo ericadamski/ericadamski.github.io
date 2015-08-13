@@ -1,4 +1,4 @@
-var app = angular.module('MyPage', ['ngRoute']);
+var app = angular.module('MyPage', ['ngRoute', 'ngFileUpload', 'ngStorage']);
 
 app.config(function ($routeProvider) {
   $routeProvider
@@ -13,6 +13,10 @@ app.config(function ($routeProvider) {
     .when('/resume', {
       controller: 'ResumeController',
       templateUrl: 'views/resume.html'
+    })
+    .when('/marking', {
+      controller: 'MarkingController',
+      templateUrl: 'views/marking.html'
     })
     .otherwise({
       redirectTo: '/'

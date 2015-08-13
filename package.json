@@ -7,10 +7,12 @@
     "start": "node bin/www"
   },
   "dependencies": {
-    "express": "~4.9.x",
     "body-parser": "x",
+    "busboy": "^0.2.9",
+    "connect-multiparty": "^2.0.0",
     "cookie-parser": "x",
     "debug": "x",
+    "express": "~4.9.x",
     "morgan": "x",
     "serve-favicon": "x"
   },
@@ -21,7 +23,6 @@
     "type": "git",
     "url": "https://github.com/ericadamski/my-page.git"
   },
-  "keywords": [
-  ],
+  "keywords": [],
   "license": "MIT"
 }

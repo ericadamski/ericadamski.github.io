@@ -1,0 +1,58 @@
+<div class="marking">
+  <div class="options">
+    <!-- List of Students -->
+    <div class="students">
+      <label>Showing :</label>
+      <select ng-model="currentStudent"
+              ng-options="student as student.name for student in students">
+      </select>
+    </div>
+    <!-- Filters?? -->
+    <!-- Add Button -->
+    <form name="addForm" ng-submit="addStudent(addForm.name.$viewValue)">
+      <input type="text" name="name" ng-model="student.name" placeholder="Students Name" required>
+      <button class="btn btn-primary" type="submit" ng-disabled="(addForm.name.$pristine && addForm.name.$invalid) || !hasMarkingScheme">Add</button>
+    </form>
+    <!-- markers name -->
+    <input type="text" ng-model="markersName" placeholder="Markers Name">
+    <!-- show marking as text -->
+    <button ng-click="toggleMarkingText()" class="btn btn-primary" ng-disabled="currentStudent === undefined"> Show Text </button>
+    <!-- edit marking scheme -->
+    <button ng-click="editMarkingScheme()" class="btn btn-primary" ng-disabled="canEditMarkingScheme">Edit Scheme</button>
+    <!-- download marking scheme and students -->
+    <a href="marking/uploads/my-marking.json" class="btn btn-primary" download>Export Marking</a>
+    <!-- upload marking scheme and students -->
+    <div class="btn btn-primary" ngf-select ng-model="file" accept="application/json">Upload Marking</div>
+    <!-- save scheme -->
+    <div class="btn btn-primary" ng-click="save()">Save Marking</div>
+  </div>
+  <div class="current" ng-class="{ 'hidden': currentStudent === undefined}">
+    <marking-outline info="currentStudent"></marking-outline>
+  </div>
+  <form class="marking-scheme" name="createMarkingScheme"
+        ng-class="{ 'hidden': hasMarkingScheme || !canEditMarkingScheme }">
+      <h1 class="title"> Create Marking Scheme </h1>
+      <!-- questions -->
+      <div class="questions" ng-repeat="question in markingScheme.questions">
+        <h2 class="title">Question {{ $index + 1 }}</h2>
+        <div class="breakdowns" ng-repeat="break in question.breakdown">
+          <div class="form-group">
+            <label>Breakdown out of</label>
+            <input type="number" ng-model="break.total">
+            <label>Breakdown Description</label>
+            <input type="text" ng-model="break.description">
+          </div>
+        </div>
+        <p> Question is out of : {{ question.total() }} </p>
+      </div>
+      <p ng-class="{ 'hidden': markingScheme === undefined && !hasMarkingScheme }"> Assignment is out of : {{ markingScheme.total() }} </p>
+      <!-- total -->
+      <button ng-click="addQuestion()" class="btn btn-primary">Add Question</button>
+
+      <button ng-click="addBreakdown()" class="btn btn-primary" ng-disabled="questionCount === 0">Add Question Breakdown</button>
+
+      <button ng-click="createScheme()" class="btn btn-primary" ng-disabled="!canCreateScheme()">Use Marking Scheme</button>
+  </form>
+  <p class="output" ng-show=" showText " style="white-space: pre;"> {{ markingToString() }} </p>
+  <!-- <p> {{ markingScheme | json }} </p> -->
+</div>

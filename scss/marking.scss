@@ -1,0 +1,147 @@
+$white: #F9F9F9;
+$black: #595C68;
+
+$yellow: #FBE35C;
+
+$pewter: $black;
+
+.marking {
+  width: 100%;
+
+  .output {
+    width: 60%;
+    margin: 0 auto;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  }
+
+  .btn, .btn-primary, .btn-primary[disabled] {
+    background-color: white;
+    border-color: $black;
+    border: 1px solid $black;
+    color: $black;
+
+    &:hover {
+      background-color: $black;
+      border-color: $black;
+      color: white;
+    }
+  }
+
+  .marking-scheme {
+    width: 80%;
+    margin: 0 auto;
+
+    h1 {
+      border-bottom: 1px solid $black;
+    }
+
+    p {
+      margin: 10px;
+    }
+
+    .title {
+      font-weight: 100;
+      font-size: 32px;
+      margin: 10px;
+    }
+
+    .questions {
+      border: 1px solid $black;
+      border-radius: 4px;
+      padding: 10px;
+      margin: 10px;
+      .breakdowns {
+        margin: 10px;
+      }
+
+      p {
+        border-top: 2px solid $black;
+      }
+    }
+  }
+
+  .options {
+    height: 200px;
+    padding: 10px;
+
+    .students {
+      display: inline-block;
+      vertical-align: top;
+      padding: 10px;
+    }
+
+    input {
+      height: 34px;
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #555;
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+      -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+      -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+      transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    }
+
+    form {
+      display: inline-block;
+    }
+  }
+
+  .current {
+    font-size: 16px;
+    width: 100%;
+
+    .title {
+      font-weight: 100;
+      margin: 10px 20px;
+
+      border-bottom: 1px solid black;
+    }
+
+    .marking-form {
+      width: 60%;
+      vertical-align: middle;
+      margin: 0 auto;
+
+      .question {
+        border: 1px solid black;
+        border-radius: 4px;
+        margin: 20px;
+
+        .question-inner {
+          margin: 10px;
+        }
+
+        .comments {
+
+          label {
+            display: inline-block;
+            vertical-align: top;
+          }
+
+          textarea {
+            display: inherit;
+          }
+
+        }
+      }
+    }
+  }
+}

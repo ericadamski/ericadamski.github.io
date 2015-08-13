@@ -1,0 +1,95 @@
+.marking {
+  width: 100%; }
+  .marking .output {
+    width: 60%;
+    margin: 0 auto;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s; }
+  .marking .btn, .marking .btn-primary, .marking .btn-primary[disabled] {
+    background-color: white;
+    border-color: #595C68;
+    border: 1px solid #595C68;
+    color: #595C68; }
+    .marking .btn:hover, .marking .btn-primary:hover, .marking .btn-primary[disabled]:hover {
+      background-color: #595C68;
+      border-color: #595C68;
+      color: white; }
+  .marking .marking-scheme {
+    width: 80%;
+    margin: 0 auto; }
+    .marking .marking-scheme h1 {
+      border-bottom: 1px solid #595C68; }
+    .marking .marking-scheme p {
+      margin: 10px; }
+    .marking .marking-scheme .title {
+      font-weight: 100;
+      font-size: 32px;
+      margin: 10px; }
+    .marking .marking-scheme .questions {
+      border: 1px solid #595C68;
+      border-radius: 4px;
+      padding: 10px;
+      margin: 10px; }
+      .marking .marking-scheme .questions .breakdowns {
+        margin: 10px; }
+      .marking .marking-scheme .questions p {
+        border-top: 2px solid #595C68; }
+  .marking .options {
+    height: 200px;
+    padding: 10px; }
+    .marking .options .students {
+      display: inline-block;
+      vertical-align: top;
+      padding: 10px; }
+    .marking .options input {
+      height: 34px;
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #555;
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+      -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+      transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s; }
+    .marking .options form {
+      display: inline-block; }
+  .marking .current {
+    font-size: 16px;
+    width: 100%; }
+    .marking .current .title {
+      font-weight: 100;
+      margin: 10px 20px;
+      border-bottom: 1px solid black; }
+    .marking .current .marking-form {
+      width: 60%;
+      vertical-align: middle;
+      margin: 0 auto; }
+      .marking .current .marking-form .question {
+        border: 1px solid black;
+        border-radius: 4px;
+        margin: 20px; }
+        .marking .current .marking-form .question .question-inner {
+          margin: 10px; }
+        .marking .current .marking-form .question .comments label {
+          display: inline-block;
+          vertical-align: top; }
+        .marking .current .marking-form .question .comments textarea {
+          display: inherit; }
+
+/*# sourceMappingURL=marking.css.map */

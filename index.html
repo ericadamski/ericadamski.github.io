@@ -12,6 +12,7 @@
     <link href="css/sticky.css" rel="stylesheet" />
     <link href="css/social-media.css" rel="stylesheet" />
     <link href="css/resume.css" rel="stylesheet" />
+    <link href="css/marking.css" rel="stylesheet" />
     <link href="img/icons/octicons/octicons.css" rel="stylesheet" />
     <link
       rel="stylesheet"
@@ -61,6 +62,15 @@
 
     <!--  Skrollr -->
     <script src="bower_components/bower-skrollr/skrollr.min.js"></script>
+
+    <!-- deep diff -->
+    <script src="bower_components/deep-diff/releases/deep-diff-0.3.2.min.js"></script>
+
+    <!-- ng-file-upload -->
+    <script src="bower_components/ng-file-upload/ng-file-upload-all.min.js"></script>
+
+    <!-- ng-storage -->
+    <script src="bower_components/ngstorage/ngStorage.min.js"></script>
   </head>
   <body ng-app="MyPage">
 
@@ -70,6 +80,7 @@
     <script src="js/app.js"></script>
 
     <!-- Controllers -->
+    <script src='js/controllers/MarkingController.js'></script>
     <script src='js/controllers/HomeController.js'></script>
     <script src='js/controllers/ContactController.js'></script>
     <script src='js/controllers/ResumeController.js'></script>
@@ -78,8 +89,10 @@
     <script src='js/services/portfolio.js'></script>
     <script src='js/services/resume.js'></script>
     <script src='js/services/profile-service.js'></script>
+    <script src='js/services/marking.js'></script>
 
     <!-- Directives -->
+    <script src='js/directives/marking.js'></script>
     <script src='js/directives/card.js'></script>
     <script src='js/directives/profile.js'></script>
     <script src='js/directives/reference.js'></script>

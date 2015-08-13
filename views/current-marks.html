@@ -1,0 +1,37 @@
+<h1 class="title"> {{ info.name }} : {{ info.outline.got() }} / {{ info.outline.total() }} </h1>
+<form class="marking-form"
+  name="markingForm" novalidate>
+  <div ng-repeat="question in info.outline.questions">
+    <div class="question">
+      <div class="question-inner">
+        <label>Question {{ $index + 1 }}</label>
+          <div ng-repeat="break in question.breakdown">
+            <div class="input-group">
+              <input type="number" name="q{{ $parent.$index }}got" class="form-control" ng-model="break.got" required min="0" max="{{ break.total }}">
+              <span class="input-group-addon" id="basic-addon1">/{{ break.total }}</span>
+            </div>
+            <div role="alert">
+              <span class="error" ng-show="markingForm.q{{ $index }}got.$error.required">
+                Required!</span>
+              <span class="error" ng-show="markingForm.q{{ $parent.$index }}got.$error.min || markingForm.q{{ $parent.$index }}got.$error.max">
+                Not valid number!</span>
+            </div>
+            <p class="description">
+              {{ break.description }}
+            </p>
+          </div>
+        <div class="comments">
+          <label> Comments </label>
+          <textarea
+            ng-model="info.outline.questions[$index].comments">
+          </textarea>
+        </div>
+        <div class="total">
+          <!-- display -->
+          <p> {{ question.got() }} / {{ question.total() }} </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<!-- <p> {{ info.outline | json }} </p> -->
