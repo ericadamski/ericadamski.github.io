@@ -1,58 +1,169 @@
 <div class="marking">
-  <div class="options">
-    <!-- List of Students -->
-    <div class="students">
-      <label>Showing :</label>
-      <select ng-model="currentStudent"
-              ng-options="student as student.name for student in students">
-      </select>
-    </div>
-    <!-- Filters?? -->
-    <!-- Add Button -->
-    <form name="addForm" ng-submit="addStudent(addForm.name.$viewValue)">
-      <input type="text" name="name" ng-model="student.name" placeholder="Students Name" required>
-      <button class="btn btn-primary" type="submit" ng-disabled="(addForm.name.$pristine && addForm.name.$invalid) || !hasMarkingScheme">Add</button>
-    </form>
-    <!-- markers name -->
-    <input type="text" ng-model="markersName" placeholder="Markers Name">
-    <!-- show marking as text -->
-    <button ng-click="toggleMarkingText()" class="btn btn-primary" ng-disabled="currentStudent === undefined"> Show Text </button>
-    <!-- edit marking scheme -->
-    <button ng-click="editMarkingScheme()" class="btn btn-primary" ng-disabled="canEditMarkingScheme">Edit Scheme</button>
-    <!-- download marking scheme and students -->
-    <a href="marking/uploads/my-marking.json" class="btn btn-primary" download>Export Marking</a>
-    <!-- upload marking scheme and students -->
-    <div class="btn btn-primary" ngf-select ng-model="file" accept="application/json">Upload Marking</div>
-    <!-- save scheme -->
-    <div class="btn btn-primary" ng-click="save()">Save Marking</div>
-  </div>
-  <div class="current" ng-class="{ 'hidden': currentStudent === undefined}">
-    <marking-outline info="currentStudent"></marking-outline>
-  </div>
-  <form class="marking-scheme" name="createMarkingScheme"
-        ng-class="{ 'hidden': hasMarkingScheme || !canEditMarkingScheme }">
-      <h1 class="title"> Create Marking Scheme </h1>
-      <!-- questions -->
-      <div class="questions" ng-repeat="question in markingScheme.questions">
-        <h2 class="title">Question {{ $index + 1 }}</h2>
-        <div class="breakdowns" ng-repeat="break in question.breakdown">
-          <div class="form-group">
-            <label>Breakdown out of</label>
-            <input type="number" ng-model="break.total">
-            <label>Breakdown Description</label>
-            <input type="text" ng-model="break.description">
-          </div>
-        </div>
-        <p> Question is out of : {{ question.total() }} </p>
+  <div class="marking-header">
+    <div class="js-menu-trigger sliding-panel-button">
+      <div class="icon" data-toggle="tooltip" data-placement="bottom" title="Menu">
+        <span class="glyphicon glyphicon-menu-hamburger"></span>
       </div>
-      <p ng-class="{ 'hidden': markingScheme === undefined && !hasMarkingScheme }"> Assignment is out of : {{ markingScheme.total() }} </p>
-      <!-- total -->
-      <button ng-click="addQuestion()" class="btn btn-primary">Add Question</button>
+    </div>
+    <a data-toggle="modal" data-target="#add-student-modal" >
+      <div class="icon" data-toggle="tooltip" data-placement="bottom" title="Add Student"><span class="glyphicon glyphicon-plus"></span></div>
+    </a>
+    <h1> Marking Helper </h1>
+  </div>
 
-      <button ng-click="addBreakdown()" class="btn btn-primary" ng-disabled="questionCount === 0">Add Question Breakdown</button>
+  <nav class="js-menu sliding-panel-content">
+    <ul>
+      <li>
+        <a class="close-menu" data-toggle="modal" data-target="#add-student-modal">
+          <span class="glyphicon glyphicon-plus"></span> Add Student
+        </a>
+      </li>
+      <li>
+        <a class="close-menu" data-toggle="modal" data-target="#markers-name-modal">
+          <span class="glyphicon glyphicon-user"></span> Markers Name
+        </a>
+      </li>
+      <li>
+        <a class="close-menu" data-toggle="modal" data-target="#file-name-modal">
+          <span class="glyphicon glyphicon-list-alt"></span> File Name
+        </a>
+      </li>
+      <li><a class="close-menu" data-toggle="modal" data-target="#scheme-modal">
+        <span class="glyphicon glyphicon-pencil"></span> Edit Scheme</a></li>
+      <li><a ng-hide="fileName === undefined || markersName === undefined" href="marking/uploads/{{ filePath }}.json" download>
+        <span class="glyphicon glyphicon-export"></span> Export Marking</a></li>
+      <li><a ngf-select ng-model="file" accept="application/json">
+        <span class="glyphicon glyphicon-import"></span> Import Marking <div ng-hide="!uploading" class="rotating progress" id="import-progress"></div>
+        <span id="import-ok" style="float: right; display: none;" class="glyphicon glyphicon-ok"></span>
+        <span id="import-error" style="float: right; display: none;" class="glyphicon glyphicon-remove"></span></a></li>
+      <li><a ng-click="save()">
+        <span class="glyphicon glyphicon-save"></span> Save Marking <div ng-hide="!saving" class="rotating progress" id="save-progress"></div>
+        <span id="save-ok" style="float: right; opacity: 0;" class="glyphicon glyphicon-ok"></span>
+        <span id="save-error" style="float: right; opacity: 0;" class="glyphicon glyphicon-remove"></span></a></li>
+      <li ng-hide="currentStudent === undefined">
+        <a> Assignment Average {{ average() }}</a>
+      </li>
+      <li>
+        <label> Toggle Text </label>
+        <div style="display: inline;">
+          <label class="label-switch">
+            <input type="checkbox" />
+            <div ng-click="toggleMarkingText()" class="checkbox"></div>
+          </label>
+        </div>
+      </li>
+    </ul>
+  </nav>
 
-      <button ng-click="createScheme()" class="btn btn-primary" ng-disabled="!canCreateScheme()">Use Marking Scheme</button>
-  </form>
-  <p class="output" ng-show=" showText " style="white-space: pre;"> {{ markingToString() }} </p>
-  <!-- <p> {{ markingScheme | json }} </p> -->
+  <div class="js-menu-screen sliding-panel-fade-screen"></div>
+
+  <div class="options">
+
+    <div class="modal fade" id="add-student-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Add a Student</h4>
+          </div>
+          <div class="modal-body">
+            <form name="addForm" ng-submit="addStudent(addForm.name.$viewValue)">
+              <input type="text" name="name" ng-model="student.name" placeholder="Students Name" required>
+              <div class="modal-footer">
+                <button class="btn btn-primary" type="submit" ng-disabled="(addForm.name.$pristine && addForm.name.$invalid) || !hasMarkingScheme">Add</button>
+              </div>
+            </form>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <div class="modal fade" id="markers-name-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Markers Name</h4>
+          </div>
+          <div class="modal-body">
+            <input type="text" ng-model="markersName" placeholder="Markers Name">
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <div class="modal fade" id="file-name-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">File Name</h4>
+          </div>
+          <div class="modal-body">
+            <input type="text" ng-model="fileName" placeholder="Markers Name">
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <div class="modal fade" id="scheme-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Marking Scheme</h4>
+          </div>
+          <div class="modal-body">
+            <form class="marking-scheme" name="createMarkingScheme">
+                <h1 class="title"> Create Marking Scheme </h1>
+                <!-- questions -->
+                <div class="questions" ng-repeat="question in markingScheme.questions">
+                  <h2 class="title">Question {{ $index + 1 }} <div class="sm-icon" ng-click="addBreakdown($index)"><span class="glyphicon glyphicon-plus"></span></div>
+                  <div class="sm-icon" ng-click="removeQuestion($index)"><span class="glyphicon glyphicon-minus"></span></div></h2>
+                  <div class="breakdowns" ng-repeat="break in question.breakdown">
+                    <div class="form-group">
+                      <label>Breakdown out of</label>
+                      <input type="number" min="1" ng-model="break.total">
+                      <label>Breakdown Description</label>
+                      <input type="text" ng-model="break.description">
+                      <div class="sm-icon" ng-click="removeBreakdown($parent.$index, $index)"><span class="glyphicon glyphicon-minus"></span></div>
+                    </div>
+                  </div>
+                  <p> Question is out of : {{ question.total() }} </p>
+                </div>
+                <p ng-class="{ 'hidden': markingScheme === undefined && !hasMarkingScheme }"> Assignment is out of : {{ markingScheme.total() }} </p>
+                <!-- total -->
+                <div class="modal-footer">
+                  <button ng-click="addQuestion()" class="btn btn-primary">Add Question</button>
+
+                  <button ng-click="createScheme()"  class="btn btn-primary" data-dismiss="modal">Use Scheme</button>
+                </div>
+            </form>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  </div>
+  <!-- List of Students -->
+  <div class="main">
+    <div class="intro" ng-hide="currentStudent !== undefined">
+      <h1 class="title">Instructions:</h1>
+      <p class="details">To start marking, got to the menu and edit a scheme. You can add questions and question breakdowns, the totals will sum for you automatically. Then go ahead a start marking by adding students names using the plus button in the top left or inside the menu. The backend is not very stable right now, so if you want to save your progress export the marking and import it when you want to resume.</p>
+    </div>
+    <div class="students">
+      <ul class="list-group" ng-show="students.length > 0">
+        <li class="list-group-item" ng-repeat="student in students" ng-click="setCurrentStudent(student.name)">{{ student.name }}<span class="badge">{{ student.outline.got() }}</span><li>
+      </ul>
+    </div>
+    <div class="current" ng-class="{ 'hidden': currentStudent === undefined}">
+      <marking-outline info="currentStudent"></marking-outline>
+    </div>
+    <p class="output" ng-show="showText" style="white-space: pre;"> {{ markingToString() }} </p>
+    <!-- <p> {{ markingScheme | json }} </p> -->
+  </div>
 </div>
+<script>
+  $(document).ready(function(){
+    $('.sliding-panel-button,.sliding-panel-fade-screen,.sliding-panel-close,.close-menu').on('click touchstart',function (e) {
+      $('.sliding-panel-content,.sliding-panel-fade-screen').toggleClass('is-visible');
+      e.preventDefault();
+    });
+  });
+</script>

@@ -1,16 +1,335 @@
+@import "../bourbon/bourbon";
+
 $white: #F9F9F9;
 $black: #595C68;
 
 $yellow: #FBE35C;
+$green: #20B684;
 
 $pewter: $black;
 
 .marking {
   width: 100%;
 
+  .glyphicon {
+    transition: all 0.1s ease;
+  }
+
+  .progress {
+    float: right;
+    display: inline-block;
+    background-color: lighten(#333, 5%);
+    height: 20px;
+    width: 20px;
+    margin: 0px auto;
+  }
+  .progress > svg {
+    height: 100%;
+    display: block;
+  }
+  @keyframes rotating {
+    from {
+      transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes rotating /* Safari and Chrome */ {
+    from {
+      transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+    }
+  }
+  .rotating {
+    -webkit-animation: rotating 2s linear infinite;
+    -moz-animation: rotating 2s linear infinite;
+    -ms-animation: rotating 2s linear infinite;
+    -o-animation: rotating 2s linear infinite;
+    animation: rotating 2s linear infinite;
+    transform-origin: 50% 50%;
+  }
+
+  .marking-header {
+    background-color: rgba($white,0.7);
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    display: inline-block;
+    vertical-align: bottom;
+
+    h1 {
+      width: 25%;
+      margin: auto;
+      text-align: center;
+      font-weight: 100;
+    }
+  }
+
+  .icon {
+    //display: block;
+    float: left;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+
+    margin: 10px;
+
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+
+    border: 1px solid $black;
+    background-color: $white;
+
+    text-align: center;
+    font-size: 1.25em;
+
+    cursor: pointer;
+
+    transition: all 0.25s;
+
+    &:hover {
+      background-color: $black;
+      transform: scale(1.2);
+
+      span {
+        color: $white;
+      }
+    }
+
+    span {
+      color: $black;
+      text-decoration: none;
+    }
+  }
+
+  .sm-icon {
+    //display: block;
+    float: right;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+
+    margin: 5px;
+
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+
+    border: 1px solid $black;
+    background-color: $white;
+
+    text-align: center;
+    font-size: 10px;
+
+    cursor: pointer;
+
+    transition: all 0.25s;
+
+    &:hover {
+      background-color: $black;
+      transform: scale(1.2);
+
+      span {
+        color: $white;
+      }
+    }
+
+    span {
+      color: $black;
+      text-decoration: none;
+    }
+  }
+
+
+  .label-switch {
+    $action-color: $green !default;
+    $base-background-color: white !default;
+    $switch-width: 52px;
+    $switch-padding: 2px;
+    $switch-height: 32px;
+    $switch-radius: $switch-height;
+    $knob-size: $switch-height - ($switch-padding * 2);
+    $knob-radius: $switch-height - ($switch-padding * 2);
+    $knob-width: $knob-size;
+    $switch-background: $base-background-color;
+    $switch-border-background: darken($base-background-color, 9%);
+    $switch-shadow: 0 2px 5px transparentize(black, 0.6);
+
+    border-radius: $switch-radius;
+    cursor: pointer;
+    display: inline-block;
+    height: $switch-height;
+    position: relative;
+    width: $switch-width;
+
+    input[type="checkbox"] {
+      display: none;
+
+      + .checkbox {
+        @include transition(all 0.3s ease);
+        background: $switch-border-background;
+        border-radius: $switch-radius;
+        border: none;
+        cursor: pointer;
+        height: $switch-height;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        width: $switch-width;
+        z-index: 0;
+
+        &:before {
+          @include position(absolute, 2px 0 0 2px);
+          @include transform(scale(1));
+          @include transition(all 0.3s ease);
+          background: $switch-background;
+          border-radius: $switch-radius;
+          content: "";
+          height: $knob-radius;
+          width: $switch-width - ($switch-padding * 2);
+          z-index: 1;
+        }
+
+        &:after {
+          @include position(absolute, 2px 0 0 2px);
+          @include transition(all 0.3s ease);
+          @include size($knob-size);
+          background: $switch-background;
+          border-radius: $knob-radius;
+          box-shadow: $switch-shadow;
+          content: "";
+          z-index: 2;
+        }
+      }
+
+      &:checked {
+        + .checkbox {
+          background: $action-color;
+
+          &:before {
+            @include transform(scale(0));
+          }
+
+          &:after {
+            left: $switch-width - $knob-width - ($switch-padding);
+          }
+        }
+      }
+    }
+  }
+
+
+  .sliding-panel-content {
+    $action-color: $black !default;
+    $dark-gray: #333 !default;
+    $sliding-panel-border-color: $dark-gray;
+    $sliding-panel-background: lighten($sliding-panel-border-color, 5%);
+    $sliding-panel-color: #fff;
+    $sliding-panel-border: 1px solid $sliding-panel-border-color;
+    $sliding-panel-background-hover: $action-color;
+    $sliding-panel-color-hover: #fff;
+    $sliding-panel-background-focus: lighten($sliding-panel-background, 5%);
+
+    @include position(fixed, 0px auto 0px 0px);
+    @include size(220px 100%);
+    @include transform(translateX(-220px));
+    @include transition(all 0.25s linear);
+    background: $sliding-panel-background;
+    z-index: 999999;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    ul {
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    li label {
+      color: $sliding-panel-color;
+
+      display: block;
+      font-weight: bold;
+      padding: 1em 0 0 1em;
+      text-decoration: none;
+
+      cursor: pointer;
+    }
+
+    li a {
+      border-bottom: $sliding-panel-border;
+      color: $sliding-panel-color;
+      display: block;
+      font-weight: bold;
+      padding: 1em;
+      text-decoration: none;
+
+      cursor: pointer;
+
+      &:focus {
+        background-color: $sliding-panel-background-focus;
+      }
+
+      &:hover {
+        background-color: $sliding-panel-background-hover;
+        color: $sliding-panel-color-hover;
+      }
+    }
+
+    &.is-visible {
+      @include transform(translateX(0));
+    }
+  }
+
+  .sliding-panel-fade-screen {
+    @include position(fixed, 0px 0px 0px 0px);
+    @include transition;
+    background: black;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999998;
+
+    &.is-visible {
+      opacity: 0.4;
+      visibility: visible;
+    }
+  }
+
+  .sliding-panel-button {
+    cursor: pointer;
+    position: relative;
+    outline: none;
+
+    img {
+      height: 1.3em;
+    }
+  }
+
+
   .output {
-    width: 60%;
-    margin: 0 auto;
+    display: inline-block;
+    width: 100%;
     padding: 6px 12px;
     font-size: 14px;
     line-height: 1.42857143;
@@ -24,6 +343,7 @@ $pewter: $black;
     -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
     -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    word-wrap: break-word;
   }
 
   .btn, .btn-primary, .btn-primary[disabled] {
@@ -40,7 +360,7 @@ $pewter: $black;
   }
 
   .marking-scheme {
-    width: 80%;
+    width: 85%;
     margin: 0 auto;
 
     h1 {
@@ -76,13 +396,8 @@ $pewter: $black;
     height: 200px;
     padding: 10px;
 
-    .students {
-      display: inline-block;
-      vertical-align: top;
-      padding: 10px;
-    }
-
     input {
+      margin-bottom: 10px;
       height: 34px;
       padding: 6px 12px;
       font-size: 14px;
@@ -100,13 +415,46 @@ $pewter: $black;
     }
 
     form {
-      display: inline-block;
+      color: black !important;
+    }
+  }
+}
+
+.main {
+
+  .intro {
+    text-align: center;
+
+    .title {
+      font-size: 60px;
+      font-weight: 300;
+    }
+
+    .details {
+      font-size: 28px;
+      font-weight: 400;
+
+      padding: 0 20px;
+    }
+  }
+
+  .students {
+    width: 30%;
+    float: left;
+
+    li {
+      cursor: pointer;
+      &:hover {
+        background-color: $black;
+        color: $white;
+      }
     }
   }
 
   .current {
     font-size: 16px;
-    width: 100%;
+    width: 70%;
+    float: left;
 
     .title {
       font-weight: 100;
@@ -116,7 +464,6 @@ $pewter: $black;
     }
 
     .marking-form {
-      width: 60%;
       vertical-align: middle;
       margin: 0 auto;
 
