@@ -60,9 +60,9 @@ app.controller('MarkingController',
       }).progress(function (evt) {
         $scope.saving = true;
         var circle = new ProgressBar.Circle('#save-progress', {
-          color: '#000',
-          trailColor: '#eee',
-          strokeWidth: 10,
+          color: '#fff',
+          trailColor: '#20B684',
+          strokeWidth: 8,
           easing: 'easeInOut'
         });
         circle.animate(evt.loaded / evt.total);
@@ -100,9 +100,9 @@ app.controller('MarkingController',
         }).progress(function (evt) {
           $scope.uploading = true;
           var circle = new ProgressBar.Circle('#import-progress', {
-            color: '#000',
-            trailColor: '#eee',
-            strokeWidth: 10,
+            color: '#fff',
+            trailColor: '#20B684',
+            strokeWidth: 8,
             easing: 'easeInOut'
           });
 

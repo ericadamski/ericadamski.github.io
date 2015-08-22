@@ -18,10 +18,10 @@ $pewter: $black;
   .progress {
     float: right;
     display: inline-block;
-    background-color: lighten(#333, 5%);
     height: 20px;
     width: 20px;
     margin: 0px auto;
+    background-color: initial;
   }
   .progress > svg {
     height: 100%;
