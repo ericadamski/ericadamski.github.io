@@ -4,18 +4,20 @@ app.controller('MarkingController',
     $scope.hasMarkingScheme     = false;
     $scope.canEditMarkingScheme = true;
     $scope.showText             = false;
-    $scope.currentQuestion      = 0;
     $scope.fileName             = undefined;
     $scope.markersName          = undefined;
     $scope.uploading            = false;
     $scope.saving               = false;
+    $scope.hasSaved             = false;
     $scope.filePath             = 'my-marking';
 
     $scope.$watch('fileName', function() {
+      $scope.hasSaved = false;
       $scope.filePath = ($scope.fileName + ' ' + $scope.markersName).replace(/\s+/g, '-').toLowerCase();
     });
 
     $scope.$watch('markersName', function() {
+      $scope.hasSaved = false;
       $scope.filePath = ($scope.fileName + ' ' + $scope.markersName).replace(/\s+/g, '-').toLowerCase();
     });
 
@@ -39,7 +41,7 @@ app.controller('MarkingController',
         return student.outline.got();
       }).reduce(function(prev, curr) {
         return prev + curr;
-      }) / $scope.studetns.length;
+      }) / $scope.students.length;
     };
 
     $scope.setCurrentStudent = function(name) {
@@ -67,7 +69,8 @@ app.controller('MarkingController',
         var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
         console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
       }).success(function (data, status, headers, config) {
-        $scope.saving = false;
+        $scope.hasSaved = true;
+        $scope.saving   = false;
         $('#save-ok').transition({display: "initial", color: "#20B684"}, 100);
         setTimeout(function () {
           $('#save-ok')
@@ -219,9 +222,6 @@ app.controller('MarkingController',
     };
 
     $scope.createScheme = function () {
-      $scope.canEditMarkingScheme = false;
-      $scope.hasMarkingScheme = true;
-
       setupScheme({
         "markingScheme": $scope.markingScheme,
         "students"     : $scope.students
@@ -267,7 +267,7 @@ app.controller('MarkingController',
       $scope.markingScheme.questions.map(
         function(question) {
           question.total    = questionTotal;
-          question.got = questionTotalGot;
+          question.got      = questionTotalGot;
           return question;
       });
     };
@@ -276,10 +276,16 @@ app.controller('MarkingController',
       $scope.markingScheme = schemeJson.markingScheme;
       $scope.students      = schemeJson.students;
 
-      $scope.markingScheme.total    = assignmentTotal;
-      $scope.markingScheme.got = assignmentTotalGot;
+      $scope.markingScheme.total  = assignmentTotal;
+      $scope.markingScheme.got    = assignmentTotalGot;
 
       setupQuestions();
+
+      if ( $scope.currentStudent === undefined && $scope.students.length > 0 )
+        $scope.currentStudent = $scope.students[0];
+
+      $scope.canEditMarkingScheme = false;
+      $scope.hasMarkingScheme = true;
     };
 
     $scope.addQuestion = function() {

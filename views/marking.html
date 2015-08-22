@@ -30,18 +30,18 @@
       </li>
       <li><a class="close-menu" data-toggle="modal" data-target="#scheme-modal">
         <span class="glyphicon glyphicon-pencil"></span> Edit Scheme</a></li>
-      <li><a ng-hide="fileName === undefined || markersName === undefined" href="marking/uploads/{{ filePath }}.json" download>
+      <li><a ng-hide="(fileName === undefined || markersName === undefined) && !hasSaved" href="marking/uploads/{{ filePath }}.json" download>
         <span class="glyphicon glyphicon-export"></span> Export Marking</a></li>
       <li><a ngf-select ng-model="file" accept="application/json">
         <span class="glyphicon glyphicon-import"></span> Import Marking <div ng-hide="!uploading" class="rotating progress" id="import-progress"></div>
         <span id="import-ok" style="float: right; display: none;" class="glyphicon glyphicon-ok"></span>
         <span id="import-error" style="float: right; display: none;" class="glyphicon glyphicon-remove"></span></a></li>
-      <li><a ng-click="save()">
+      <li><a ng-hide="fileName === undefined || markersName === undefined" ng-click="save()">
         <span class="glyphicon glyphicon-save"></span> Save Marking <div ng-hide="!saving" class="rotating progress" id="save-progress"></div>
-        <span id="save-ok" style="float: right; opacity: 0;" class="glyphicon glyphicon-ok"></span>
-        <span id="save-error" style="float: right; opacity: 0;" class="glyphicon glyphicon-remove"></span></a></li>
+        <span id="save-ok" style="float: right; display: none;" class="glyphicon glyphicon-ok"></span>
+        <span id="save-error" style="float: right; display:none;" class="glyphicon glyphicon-remove"></span></a></li>
       <li ng-hide="currentStudent === undefined">
-        <a> Assignment Average {{ average() }}</a>
+        <a class="const"> Average : {{ average() }} / {{ markingScheme.total() }}</a>
       </li>
       <li>
         <label> Toggle Text </label>
@@ -98,7 +98,7 @@
             <h4 class="modal-title">File Name</h4>
           </div>
           <div class="modal-body">
-            <input type="text" ng-model="fileName" placeholder="Markers Name">
+            <input type="text" ng-model="fileName" placeholder="File Name">
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->

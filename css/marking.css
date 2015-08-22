@@ -202,6 +202,9 @@
       padding: 1em 0 0 1em;
       text-decoration: none;
       cursor: pointer; }
+    .marking .sliding-panel-content .const {
+      cursor: default;
+      background-color: #595C68; }
     .marking .sliding-panel-content li a {
       border-bottom: 1px solid #333;
       color: #fff;

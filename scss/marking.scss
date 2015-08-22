@@ -277,6 +277,11 @@ $pewter: $black;
       cursor: pointer;
     }
 
+    .const {
+      cursor: default;
+      background-color: $sliding-panel-background-hover;
+    }
+
     li a {
       border-bottom: $sliding-panel-border;
       color: $sliding-panel-color;
