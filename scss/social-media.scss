@@ -1,4 +1,4 @@
-$circle-size: auto;
+$circle-size: 100%;
 $circle-font-size: 250%;
 
 $min-circle-font-size: 4vw;
@@ -7,6 +7,7 @@ $min-circle-size: 5vw;
 .social-link {
   color: white;
   font-size: $circle-font-size;
+  vertical-align: bottom;
   background: #DB6E82;
   border-radius:100%;
   text-align:center;
@@ -18,7 +19,6 @@ $min-circle-size: 5vw;
   height: $circle-size;
   min-height: $min-circle-size;
   min-width: $min-circle-size;
-  padding-top:12px;
   -o-transition:all .5s;
   -webkit-transition: all .5s;
   -moz-transition: all .5s;
@@ -38,14 +38,17 @@ $min-circle-size: 5vw;
   }
 
   &:hover {
+    border-radius: 5px;
+
+    color: white;
+    text-decoration: none;
     span {
       color: white;
-      &::after,
-      &::before {
-        color: white;
-      }
     }
-    background: #ef92a3;
+  }
+
+  .fa {
+    vertical-align: bottom;
   }
 }
 

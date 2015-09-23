@@ -1,8 +1,8 @@
-<div class="navbar navbar-fixed-top">
+<!-- <div class="navbar navbar-fixed-top">
   <div class="container">
     <a class="navbar-brand">Eric Adamski</a>
   </div>
-</div>
+</div> -->
 <div class="main">
   <div id="js-parallax-window" class="parallax-window">
     <div class="parallax-static-content">
@@ -12,21 +12,52 @@
         data-0="background-position: 0px 0px;"
         data-1000000="background-position: 0px -500000px;"
         data-anchor-target="#js-parallax-window">
+        <div class="slant"></div>
+        <div class="slant-top"></div>
     </div>
   </div>
   <div class="portfolio">
-    <h2 class="title"> My Portfolio </h2>
-    <p class="info"> A chance for me to show you who I am, what I do, and how well I do it! <br><br><br></p>
-    <div class="cards" ng-repeat="portfolio in portfolios">
-      <card info="portfolio"></card>
-    </div>
-    <div class="social-media-icons">
-      <div class="details">
-        <h2 class="title"> My Contact Info </h2>
-        <p class="info"> Feel free to contact me at any time using the any of the mediums below! <br><br><br></p>
+    <div class="section">
+      <div class="picture"></div>
+      <div class="picture-border"></div>
+      <div class="inner-right">
+        <div class="details">
+          <h2 class="title"> My Portfolio </h2>
+          <p class="info"> A chance for me to show you who I am, and what I am passionate about! </p>
+        </div>
+        <div class="links">
+          <div class="link" ng-repeat="portfolio in portfolios">
+            <!-- <card info="portfolio" ngm-content="portfolio"></card> -->
+            <a class="btn btn-primary" ng-href="{{ portfolio.url }}" style="width: 100%;">
+              <div class="btn-cover">
+                <div class="contents">
+                  {{ portfolio.title }}
+                </div>
+              </div>
+              {{ portfolio.title }}
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="icon" ng-repeat="icon in socialMedia">
-        <social-media info="icon"></social-media>
+    </div>
+
+    <div class="section social-media-icons">
+      <div class="backgrnd">
+        <div class="color-bkgrd">
+          <div class="real-background"></div>
+        </div>
+        <div class="photo-bkgrd"></div>
+      </div>
+      <div class="social-left">
+        <div class="details">
+          <h2 class="title"> My Contact Info </h2>
+          <p class="info"> Feel free to contact me at any time using the any of the following mediums! <br><br><br></p>
+        </div>
+      </div>
+      <div class="social-right">
+        <div class="scicon" ng-repeat="icon in socialMedia">
+          <social-media info="icon"></social-media>
+        </div>
       </div>
     </div>
   </div>

@@ -224,7 +224,7 @@ app.controller('MarkingController',
     $scope.createScheme = function () {
       setupScheme({
         "markingScheme": $scope.markingScheme,
-        "students"     : $scope.students
+        "students"     : (($scope.students === undefined) ? [] : $scope.students)
       });
     };
 

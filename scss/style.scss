@@ -9,10 +9,172 @@ $parallax-background-height: $parallax-window-height * 2;
 
 $shrink: 820px;
 
+$section-height: 100vh;
+
 body {
+  //font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: 'Raleway', sans-serif;
+  -webkit-font-smoothing: antialiased;
   margin: 0;
   overflow-y: scroll; /* has to be scroll, not auto */
   -webkit-overflow-scrolling: touch;
+}
+
+.section {
+  position: relative;
+  height: $section-height;
+  width: 100%;
+
+  overflow: hidden;
+
+  @media screen and (max-width: 800px) {
+    height: 200vh;
+  }
+}
+
+.slant {
+  height: 100%;
+  width: 1%;
+  background-color: #50fad6;
+
+  &::after {
+  position: relative;
+  content: '';
+  border-left: 300px solid #50fad6;
+  border-top: 800px solid transparent;
+  top: 100%;
+  }
+}
+
+.slant-top {
+  height: 1%;
+  width: 100%;
+
+  background-color: #f1fa8c;
+
+  &::before {
+    position: relative;
+    display: block;
+    content: '';
+    border-right: 100vw solid #f1fa8c;
+    border-top: 200px solid transparent;
+    top: -200px;
+  }
+
+  @media screen and (max-width: 380px) {
+    &::before {
+      border-top: 300px solid transparent;
+      top: -300px;
+    }
+  }
+}
+
+.picture-border {
+  $green: #50fad6;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $section-height;
+  background: url("../img/links.jpg") no-repeat;
+  background-size: cover;
+
+  @media screen and (max-width: 800px) {
+    height: 200vh;
+  }
+}
+
+.inner-right {
+  position: absolute;
+  color: white;
+
+  display: block;
+
+  padding: 30px;
+
+  top: 25%;
+  left: 10%;
+
+  width: 80%;
+
+  margin: 0 auto;
+  text-align: right;
+
+  background-color: rgba(0, 0, 0, 0.7);
+
+  @media screen and (max-width: 800px) {
+    text-align: left;
+  }
+
+  .details {
+    display: inline-block;
+    padding-right: 30px;
+
+    width: 45%;
+
+    @media screen and (max-width: 800px) {
+      width: 100%;
+    }
+  }
+
+  .links {
+    display: inline-block;
+    width: 45%;
+    @media screen and (max-width: 800px) {
+      width: 100%;
+    }
+  }
+}
+
+.input-group {
+  width: 100%;
+
+  label {
+    float: left;
+  }
+
+  input {
+    width: 100%;
+  }
+}
+
+.editing-context {
+  .edit {
+    font-size: small;
+    padding: 0 5px;
+  }
+}
+
+.add-content {
+  margin-right: 20px;
+
+  button {
+    border: 1px solid black !important;
+    border-radius: 20px;
+
+    height: 30px;
+    width: 30px;
+
+    font-size: larger;
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+
+    span {
+      padding: 1px;
+    }
+  }
 }
 
 .hide {
@@ -37,7 +199,7 @@ body {
 }
 
 .parallax-background {
-  background: url("../img/backdrop.jpg") repeat fixed;
+  background: url("../img/background.jpg") repeat fixed;
   background-size: cover;
   width: 100%;
   height:100%;
@@ -99,49 +261,211 @@ body {
   }
   .name {
     z-index: 2;
-    padding: 5%;
+    padding: 4%;
     font-size: 250%;
-    font-weight: lighter;
+    font-weight: 200;
 
     transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
-  }
-}
 
-.sticky-wrapper {
-  height: 20em;
-  width: 20em;
-  margin: 0 auto;
+    @media screen and (max-width: 600px) {
+      color: black;
+    }
+  }
 }
 
 .portfolio {
   text-align: center;
 
+  .btn-primary {
+    // background-color: rgba(255, 255, 255, 0.8);
+    background-color: transparent;
+    color: grey;
+    border-radius: 0;
+    border-color: grey;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.8);
+      border-color: grey;
+      color: whitesmoke;
+
+      .btn-cover {
+        top: 0;
+      }
+    }
+  }
+
+  .btn-cover {
+    position: absolute;
+    background: #9E9996;
+    color: whitesmoke;
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 100%;
+
+    overflow: hidden;
+
+    -webkit-transition: top 0.2s ease-in;
+
+    .contents {
+
+      display: inline-block;
+      text-align: center;
+      vertical-align: middle;
+
+      position: relative;
+
+      // top: 50%;
+      -ms-transform: translateY(40%);
+      -webkit-transform: translateY(40%);
+      transform: translateY(40%);
+
+      width: 50%;
+      height: inherit;
+      line-height: 2em;
+
+      margin: 0 auto;
+
+      font-size: 64px;
+      font-weight: 100;
+
+      .details {
+        font-size: 28px;
+        font-weight: 100;
+      }
+
+      &::before, &::after {
+        content: '';
+
+        position: relative;
+        display: block;
+
+        padding: 1px;
+
+        background: transparent;
+
+        border: 1px solid whitesmoke;
+      }
+    }
+  }
+
+  .link {
+    padding: 30px 0;
+  }
+
   .title {
     font-size: -webkit-xxx-large;
-    font-weight: lighter;
+    font-weight: 400;
   }
   .info {
-    font-weight: 300;
-    border-bottom: 2px solid black;
-    width: 80vw;
+    font-weight: 100;
+    font-size: 28px;
+    width: 100%;
     margin: 0 auto;
-
-    &::before,
-    &::after {
-      content: '';
-    }
   }
 
   .social-media-icons {
-    .details {
-      text-align: center;
+
+    height: 250px;
+
+    @media screen and (max-width: 800px) {
+      height: auto;
+      background: url('../img/social.jpg') no-repeat contain;
     }
 
-    .icon {
-      padding: 10px;
-      padding-top: 5%;
+    .backgrnd {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: inherit;
+      width: 100%;
+
+      .color-bkgrd {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: inherit;
+
+        z-index: 2;
+
+        .real-background {
+          width: 100%;
+          height: 100%;
+          background-color: #50fad6;
+        }
+
+        &::after {
+          content: '';
+          position: relative;
+          border-left: 400px solid #50fad6;
+          border-top: 690px solid transparent;
+          left: 60%;
+          @media screen and (max-width: 800px) {
+            content: none;
+          }
+        }
+      }
+
+      .photo-bkgrd {
+        top: 0;
+        left: 50%;
+        position: absolute;
+        background: url('../img/social.jpg') no-repeat;
+        background-size: contain;
+
+        height: 150%;
+        width: 150%;
+      }
+    }
+
+
+    .social-left {
+      position: relative;
       display: inline-block;
+      width: 45%;
+      height: 100%;
+      z-index: 3;
+
+      @media screen and (max-width: 800px) {
+        width: 100%;
+        padding: 10px;
+      }
+
+      .details {
+        position: relative;
+        top: 20%;
+        text-align: left;
+      }
+    }
+
+    .social-right {
+      position: relative;
+      display: inline-block;
+      z-index: 3;
+
+      height: 100%;
+      width: 30%;
+
+      @media screen and (max-width: 800px) {
+        width: 100%;
+        padding: 30px;
+      }
+
+      .scicon {
+        padding: 5px;
+        padding-top: 2%;
+        display: inline-block;
+
+        a {
+          &:focus {
+            text-decoration: none;
+          }
+        }
+      }
     }
   }
 }
