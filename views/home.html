@@ -1,66 +1,143 @@
-<!-- <div class="navbar navbar-fixed-top">
-  <div class="container">
-    <a class="navbar-brand">Eric Adamski</a>
-  </div>
-</div> -->
-<div class="main">
-  <div id="js-parallax-window" class="parallax-window">
-    <div class="parallax-static-content">
-      <profile info="profile"></profile>
-    </div>
-    <div id="js-parallax-background" class="parallax-background"
-        data-0="background-position: 0px 0px;"
-        data-1000000="background-position: 0px -500000px;"
-        data-anchor-target="#js-parallax-window">
-        <div class="slant"></div>
-        <div class="slant-top"></div>
-    </div>
-  </div>
-  <div class="portfolio">
-    <div class="section">
-      <div class="picture"></div>
-      <div class="picture-border"></div>
-      <div class="inner-right">
-        <div class="details">
-          <h2 class="title"> My Portfolio </h2>
-          <p class="info"> A chance for me to show you who I am, and what I am passionate about! </p>
+<header id="header" class="__header">
+  <ul class="__header-nav nav">
+    <a href="/">
+      <div class="__header-image">
+        <div class="char">e</div>
+      </div>
+    </a>
+    <li><a href="#resume">resumé</a></li>
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#life-history">life</a></li>
+  </ul>
+</header>
+<section class="homepage-hero-module">
+    <div class="video-container">
+      <h1 class="hello">hello world<span style="color:#72E6BF">.</span></h1>
+        <div class="header-title">
+          <h2>
+            <span>
+              Eric Adamski :
+              <span class="spacer"></span><br><span class="spacer"></span>
+              <a href="#resume">Resumé</a>, <a href="#projects">Projects</a> &
+              <span class="spacer"></span><br><span class="spacer"></span>
+              a brief <a href="#life-history">Life</a> History
+            </span>
+          </h2>
         </div>
-        <div class="links">
-          <div class="link" ng-repeat="portfolio in portfolios">
-            <!-- <card info="portfolio" ngm-content="portfolio"></card> -->
-            <a class="btn btn-primary" ng-href="{{ portfolio.url }}" style="width: 100%;">
-              <div class="btn-cover">
-                <div class="contents">
-                  {{ portfolio.title }}
-                </div>
-              </div>
-              {{ portfolio.title }}
-            </a>
+        <div class="filter"></div>
+        <video autoplay loop muted class="fillWidth">
+          <source ng-src="{{ video }}" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+        </video>
+        <div class="poster hidden">
+            <img src="img/backdrop.jpg" alt="paris">
+        </div>
+    </div>
+</section>
+<section class="intro">
+  <h2 class="__title"> boom! </h2>
+  <p class="__para">
+    I am Eric, a young professional programmer, website developer, entrepreneur, sensei & father. I like living - and I live it to be happy! I intened to help people find what drives and inspires them so they can live a happy and fulfilled life! Welcome to my world of computers and punching things sqaure in the face.
+  </p>
+  <div class="contacting-me">
+    <ul>
+      <a href="mailto:ericadamski@zealigan.com"><i class="fa fa-envelope-o"></i> / ericadamski </a>
+      <a href="tel:+16138895298"><i class="fa fa-phone"></i> / eric </a>
+      <a href="http://www.facebook.com/wikkidoo"><i class="fa fa-facebook-official"></i> / wikkidoo </a>
+      <a href="https://www.instagram.com/wikkidoo/"><i class="fa fa-instagram"></i> / wikkidoo</a>
+    </ul>
+  </div>
+</section>
+<section id="resume">
+  <div class="resume accordion">
+    <!-- Work Experience -->
+    <div class="accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent=".resume" href="/resume/#work"><h1 class="heading">Work Experience  <span id="work-arrow" class="arrow glyphicon glyphicon-menu-down"></span></h1></a>
+      </div>
+      <div id="work" class="accordion-body collapse in">
+        <div class="work-experience accordion-inner">
+          <div ng-repeat="work in resume.workExperience">
+            <work-experience info="work"></work-experience>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="section social-media-icons">
-      <div class="backgrnd">
-        <div class="color-bkgrd">
-          <div class="real-background"></div>
-        </div>
-        <div class="photo-bkgrd"></div>
+    <!-- Education -->
+    <div class="accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent=".resume" href="/resume/#education"><h1 class="heading">Education  <span id="education-arrow" class="arrow glyphicon glyphicon-menu-down"></span></h1></a>
       </div>
-      <div class="social-left">
-        <div class="details">
-          <h2 class="title"> My Contact Info </h2>
-          <p class="info"> Feel free to contact me at any time using the any of the following mediums! <br><br><br></p>
+    </div>
+    <div id="education" class="accordion-body collapse in">
+      <div class="education accordion-inner">
+        <div ng-repeat="education in resume.educations">
+          <education info="education"></education>
         </div>
       </div>
-      <div class="social-right">
-        <div class="scicon" ng-repeat="icon in socialMedia">
-          <social-media info="icon"></social-media>
+    </div>
+    <!-- Skills -->
+    <div class="accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent=".resume" href="/resume/#skills"><h1 class="heading">Skills  <span id="skills-arrow" class="arrow glyphicon glyphicon-menu-down"></span></h1></a>
+      </div>
+    </div>
+    <div id="skills" class="accordion-body collapse in">
+      <div class="skills accodian-inner">
+        <div class="skill-details" ng-repeat="skill in resume.skills">
+          <skill info="skill"></skill>
+        </div>
+      </div>
+    </div>
+    <!-- Contacts -->
+    <div class="accordion-group">
+      <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent=".resume" href="/resume/#references"><h1 class="heading">References <span id="references-arrow" class="arrow glyphicon glyphicon-menu-down"></span></h1></a>
+      </div>
+    </div>
+    <div id="references" class="accordion-body collapse in">
+      <div class="references accordion-inner">
+        <div class="contact-info" ng-repeat="contact in resume.references">
+          <reference info="contact"></reference>
         </div>
       </div>
     </div>
   </div>
-  <!-- Parallax Plugin -->
-  <script src="js/shared/parallax.js"></script>
-</div>
+</section>
+<section id="projects">
+  <div class="__outline">
+    <div class="right-col">
+      <h2 class="__title"> some boss projects </h2>
+      <!-- img2 -->
+      <div class="project pright">
+        <h3 class="__title"></h3>
+        <p class="__para"></p>
+      </div>
+    </div>
+    <div class="left-col">
+      <div class="left-top-row">
+        <!-- img1 -->
+        <div class="project ptop">
+          <h3 class="__title"></h3>
+          <p class="__para"></p>
+        </div>
+      </div>
+      <div class="left-bottom-row">
+        <!-- img3 -->
+        <div class="project pbottom">
+          <h3 class="__title"></h3>
+          <p class="__para"></p>
+        </div>
+        <!-- img4 -->
+        <div class="project pleft">
+          <h3 class="__title"></h3>
+          <p class="__para"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="life-history">
+  <div class="__outline"></div>
+</section>
+
+<script src="js/shared/video-management.js"></script>

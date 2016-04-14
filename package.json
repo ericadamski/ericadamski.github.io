@@ -21,7 +21,7 @@
     "moment": "^2.11.1",
     "node-minify": "x",
     "prerender-node": "^2.2.1",
-    "q": "^1.4.1",
+    "q": "^1.4.1"
   },
   "engines": {
     "node": "0.12.2"

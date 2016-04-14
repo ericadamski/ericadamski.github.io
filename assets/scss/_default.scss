@@ -1,0 +1,77 @@
+$green: shade(aquamarine, 10%);
+$red: #F25F5C;
+$yellow: #FFE066;
+$grey: #50514F;
+$blue: #247BA0;
+
+body {
+  overflow-x: hidden;
+  font-family: 'Railway', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+
+  &:hover,
+  &focus,
+  &:active {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.__title {
+  font-family: 'Rock Salt', cursive;
+  position: relative;
+  margin-bottom: 50px;
+  font-size: 4em;
+
+  &:after {
+    position: absolute;
+    display: block;
+    height: 3px;
+    width: 66.66666%;
+    left: 50%;
+    transform: translate3d(-50%,0,0);
+    bottom: -15px;
+    background: $red;
+    margin-top: 20px;
+    content: '';
+  }
+}
+
+.__para {
+  font-family: 'Railway', sans-serif;
+  max-width: 800px;
+  font-size: 1.5em;
+}
+
+.__outline {
+  padding: 25px;
+  border: 1px solid $grey;
+  position: relative;
+  min-height: 50vw;
+  width: calc(100% - 70px);
+  margin: 10px 0;
+  margin-left: 50px;
+  visibility: hidden;
+
+  background: #B7B7B7;
+
+  @media only screen and (min-width: 800px) {
+    visibility: visible;
+  }
+
+  &:before{
+    white-space: pre-wrap;
+    content: '13 / 02 / 2016 \A Making Miracles Happen. | E.Adamski';
+    font-family: 'Anonymous Pro', serif;
+    font-size: 12px;
+    position: absolute;
+    left: -140px;
+    bottom: 100px;
+    transform: rotate(-90deg);
+    color: $grey;
+  }
+}

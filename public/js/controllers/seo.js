@@ -7,7 +7,7 @@ app.controller('SEOController', [ '$scope', function ($scope) {
       image: '',
       type: 'personal',
       url: 'http://ericadamski.github.io/',
-    }
+    },
     facebook: {
       uid: ''
     },

@@ -17,7 +17,7 @@
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-status-bar-style" content="#FF9012">
 
-    <link rel="icon" sizes="192x192" href="img/6t-colour-c.png">
+    <link rel="icon" sizes="192x192" href="">
 
     <meta property="og:title" content="{{ seo.og.title }}">
     <meta property="og:type" content="{{ seo.og.type }}">
@@ -43,6 +43,8 @@
 
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500' rel='stylesheet' type='text/css'>
 
+    <link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light|Permanent+Marker|Rock+Salt|Anonymous+Pro' rel='stylesheet' type='text/css'>
+
     <!-- Bootstrap -->
     <link
       rel="stylesheet"
@@ -54,11 +56,32 @@
     <link href="css/social-media.css" rel="stylesheet" />
     <link href="css/resume.css" rel="stylesheet" />
     <link href="css/marking.css" rel="stylesheet" />
+    <link href="stylesheets/home-video.css" rel="stylesheet"/>
+    <link href="stylesheets/header.css" rel="stylesheet"/>
+    <link href="stylesheets/intro-section.css" rel="stylesheet"/>
+    <link href="stylesheets/project.css" rel="stylesheet"/>
   </head>
-  <body>
+  <body data-spy="scroll" data-target="#header">
 
-    <div ng-view>
-    </div>
+    <div ng-view></div>
+
+    <!-- JQuery -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Transit -->
+    <script src="js/shared/jquery.transit.min.js"></script>
+
+    <!-- progressbar.js -->
+    <script src="bower_components/progressbar.js/dist/progressbar.min.js"></script>
+
+    <!-- bootstrap -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+    <!-- Include the core AngularJS library -->
+    <script src="bower_components/angular/angular.min.js"></script>
+
+    <!-- Include the AngularJS routing library -->
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
 
     <!-- Modules -->
     <script src="js/app.js"></script>
@@ -68,6 +91,7 @@
     <script src='js/controllers/HomeController.js'></script>
     <script src='js/controllers/ContactController.js'></script>
     <script src='js/controllers/ResumeController.js'></script>
+    <script src='js/controllers/seo.js'></script>
 
     <!-- Services -->
     <script src='js/services/portfolio.js'></script>
@@ -87,23 +111,5 @@
 
     <!-- Shared JS -->
     <script src="js/shared/onload.js"></script>
-
-    <!-- JQuery -->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-
-    <!-- Transit -->
-    <script src="js/shared/jquery.transit.min.js"></script>
-
-    <!-- progressbar.js -->
-    <script src="bower_components/progressbar.js/dist/progressbar.min.js"></script>
-
-    <!-- bootstrap -->
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-
-    <!-- Include the core AngularJS library -->
-    <script src="bower_components/angular/angular.min.js"></script>
-
-    <!-- Include the AngularJS routing library -->
-    <script src="bower_components/angular-route/angular-route.min.js"></script>
   </body>
 </html>

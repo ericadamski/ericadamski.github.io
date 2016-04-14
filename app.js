@@ -9,24 +9,21 @@ var routes = require('./routes/index');
 
 var app = express();
 
-app.use(favicon(__dirname + '../../../img/e.png'));
+app.use(favicon(path.join(__dirname, 'public', 'img', 'e.png')));
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/', express.static(path.join(__dirname, '..', '..', 'public')));
-app.use('/css', express.static(path.join(__dirname, '..', '..', 'css')));
+app.use('/', express.static(path.join(__dirname, 'public')));
 app.use('/bower_components',
-  express.static(path.join(__dirname, '..', '..', 'bower_components')));
-app.use('/js', express.static(path.join(__dirname, '..', '..', 'js')));
-app.use('/views', express.static(path.join(__dirname, '..', '..', 'views')));
-app.use('/img', express.static(path.join(__dirname, '..', '..', 'img')));
-app.use('/portfolio',
-  express.static(path.join(__dirname, '..', '..', 'portfolio')));
-app.use('/marking',
-  express.static(path.join(__dirname, '..', '..', 'marking')));
+  express.static(path.join(__dirname, 'bower_components')));
+app.use('/views', express.static(path.join(__dirname, 'views')));
+// app.use('/portfolio',
+//   express.static(path.join(__dirname, '..', '..', 'portfolio')));
+// app.use('/marking',
+//   express.static(path.join(__dirname, '..', '..', 'marking')));
 
 app.use('/', routes);
 
