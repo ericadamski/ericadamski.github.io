@@ -1,10 +1,11 @@
 {
-  "name": "my-page",
-  "version": "0.0.1",
+  "name": "EricAdamski-Resume",
+  "version": "1.0.0",
   "description": "My own personal webpage.",
-  "main": "js/node/app.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node bin/www"
+    "start": "NODE_ENV=production node bin/www",
+    "test": "NODE_ENV=development node bin/www"
   },
   "dependencies": {
     "body-parser": "x",
@@ -14,14 +15,20 @@
     "debug": "x",
     "express": "~4.9.x",
     "morgan": "x",
-    "serve-favicon": "x"
+    "serve-favicon": "x",
+    "compression": "x",
+    "dotenv": "^1.2.0",
+    "moment": "^2.11.1",
+    "node-minify": "x",
+    "prerender-node": "^2.2.1",
+    "q": "^1.4.1",
   },
   "engines": {
     "node": "0.12.2"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ericadamski/my-page.git"
+    "url": "https://github.com/ericadamski/ericadamski.github.io.git"
   },
   "keywords": [],
   "license": "MIT"
