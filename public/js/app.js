@@ -1,24 +1,15 @@
-var app = angular.module('MyPage', ['ngRoute', 'ngFileUpload', 'ngStorage', 'ngManage']);
+var app = angular.module('MyPage', ['ngRoute']);
 
-app.config(function ($routeProvider) {
+app.config(function ($routeProvider, $locationProvider, $httpProvider) {
   $routeProvider
     .when('/', {
       controller: 'HomeController',
       templateUrl: 'views/home.html'
     })
-    .when('/contact', {
-      controller: 'ContactController',
-      templateUrl: 'views/contact.html'
-    })
-    .when('/resume', {
-      controller: 'ResumeController',
-      templateUrl: 'views/resume.html'
-    })
-    .when('/marking', {
-      controller: 'MarkingController',
-      templateUrl: 'views/marking.html'
-    })
     .otherwise({
       redirectTo: '/'
     });
+
+    $locationProvider.html5Mode(true);
+    $httpProvider.useApplyAsync(true);
 });

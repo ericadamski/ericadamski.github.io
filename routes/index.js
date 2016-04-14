@@ -1,26 +1,15 @@
 var express = require('express');
-var path = require('path');
-var router = express.Router();
-var Busboy = require('busboy');
-var fs = require("fs")
+var path    = require('path');
+var router  = express.Router();
 
-router.get('/', function(req, res, next) {
-  res.sendFile(path.join(__dirname, '..', '..', '..', 'index.html'));
+router.get('/*', function (req, res, next) {
+  if (req.headers.host !== 'ericadamski.github.io' && process.env.NODE_ENV !== 'development')
+    return res.status(400);
+  next();
 });
 
-router.post('/marking/uploads', function (req, res, next) {
-  var busboy = new Busboy({ headers: req.headers });
-
-  busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
-    var saveTo = path.join("marking", "uploads", path.basename(filename));
-    file.pipe(fs.createWriteStream(saveTo));
-  });
-
-  busboy.on('finish', function() {
-    res.writeHead(200, { 'Connection': 'close' });
-    res.end("That's all folks!");
-  });
-  return req.pipe(busboy);
+router.get('/', function(req, res, next) {
+  res.sendFile(path.join(__dirname, '..', 'views', 'index.html'));
 });
 
 module.exports = router;
