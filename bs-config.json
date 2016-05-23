@@ -1,0 +1,11 @@
+{
+  "proxy": "localhost:3000",
+  "port": 8000,
+  "injectChanges": true,
+  "files": ["./public/**/*.{html,css,js}", "./views/*.html"],
+  "serveStatic": ["./public", "bower_components", "node_modules", "./views"],
+  "server": {
+    "baseDir": "../",
+    "index": "./views/index.html"
+  }
+}

@@ -19,37 +19,34 @@ app.use(cookieParser());
 app.use('/', express.static(path.join(__dirname, 'public')));
 app.use('/bower_components',
   express.static(path.join(__dirname, 'bower_components')));
+app.use('/node_modules',
+  express.static(path.join(__dirname, 'node_modules')));
 app.use('/views', express.static(path.join(__dirname, 'views')));
-// app.use('/portfolio',
-//   express.static(path.join(__dirname, '..', '..', 'portfolio')));
-// app.use('/marking',
-//   express.static(path.join(__dirname, '..', '..', 'marking')));
 
 app.use('/', routes);
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
+  app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,
-      error: err
+      error: err,
     });
   });
 }
 
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,
-    error: {}
+    error: {},
   });
 });
-
 
 module.exports = app;
