@@ -9,6 +9,8 @@ var routes = require('./routes/index');
 
 var app = express();
 
+app.use(require('compression')({ level: 9 }));
+
 app.use(favicon(path.join(__dirname, 'public', 'img', 'e.png')));
 
 app.use(logger('dev'));
@@ -17,36 +19,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/', express.static(path.join(__dirname, 'public')));
+app.use('/', express.static(path.join(__dirname, 'build')));
 app.use('/bower_components',
   express.static(path.join(__dirname, 'bower_components')));
-app.use('/node_modules',
-  express.static(path.join(__dirname, 'node_modules')));
-app.use('/views', express.static(path.join(__dirname, 'views')));
 
 app.use('/', routes);
-
-app.use(function (req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
-
-if (app.get('env') === 'development') {
-  app.use(function (err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err,
-    });
-  });
-}
-
-app.use(function (err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {},
-  });
-});
 
 module.exports = app;

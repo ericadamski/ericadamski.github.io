@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {Experience} from './experience.model';
-import {Education} from './education.model';
-import {Skill} from './skill.model';
-import {Reference} from './reference.model';
+import {Experience} from '../experience/experience.model';
+import {Education} from '../education/education.model';
+import {Skill} from '../skill/skill.model';
+import {Reference} from '../reference/reference.model';
 // import {AngularFire} from 'angularfire2';
 
 @Injectable()
@@ -41,7 +41,7 @@ export class ResumeService {
       },
       {
         "skill": "GitFlow",
-        "proficiency": 8
+        "proficiency": 9
       },
       {
         "skill": "Java",
@@ -73,15 +73,15 @@ export class ResumeService {
       },
       {
         "skill": "JQuery",
-        "proficiency": 7
+        "proficiency": 8
       },
       {
         "skill": "Express",
-        "proficiency": 6
+        "proficiency": 8
       },
       {
         "skill": "Node.js",
-        "proficiency": 7
+        "proficiency": 9
       },
       {
         "skill": "Jasmine",
@@ -97,7 +97,7 @@ export class ResumeService {
       },
       {
         "skill": "HTML",
-        "proficiency": 8
+        "proficiency": 9
       },
       {
         "skill": "CSS3/SASS",
@@ -146,6 +146,14 @@ export class ResumeService {
       {
         "skill": "BitBucket",
         "proficiency": 9
+      },
+      {
+        "skill": "Ionic",
+        "proficiency": 7
+      },
+      {
+        "skill": "NativeScript {N}",
+        "proficiency": 7
       }
     ];
   }
@@ -172,6 +180,11 @@ export class ResumeService {
         "title": "Teaching Assistant, Carleton University",
         "date": { "from": "July 2015", "to": "August 2015" },
         "details": "Responsible for holding office hours once a week and marking assignments for Introduction to Computer Science II, taught by Dr. Andrew Schoenrock. I was able to facilitate further learning in the students by offering them guidance and aiding in problems that they came across throughout the semester."
+      },
+      {
+        "title": "Owner, Zealigan",
+        "date": { "from": "September 2015", "to": "Present" },
+        "details": "This is my pet project, exploring a more inovative side to web technologies and software design while having fun programming and pushing the boundries. As the owner I managed the finances, scheduling, support, sales, and the list goes on."
       }
     ];
   }

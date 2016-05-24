@@ -7,31 +7,32 @@
       </div>
     </a>
     <li><a href="#resume">resumé</a></li>
-    <li><a href="#projects">projects</a></li>
-    <li><a href="#life-history">life</a></li>
+    <li><a href="https://www.github.com/ericadamski">projects</a></li>
+    <li><a href="https://www.facebook.com/wikkidoo">life</a></li>
   </ul>
 </header>
 <section class="homepage-hero-module">
   <div class="video-container">
     <h1 class="hello">hello world<span style="color:#72E6BF">.</span></h1>
     <div class="header-title">
+      <div class="me"></div>
       <h2>
-            <span>
-              Eric Adamski :
-              <span class="spacer"></span><br><span class="spacer"></span>
-              <a href="#resume">Resumé</a>, <a href="#projects">Projects</a> &
-              <span class="spacer"></span><br><span class="spacer"></span>
-              a brief <a href="#life-history">Life</a> History
-            </span>
-          </h2>
+        <span>
+          Eric Adamski :
+          <span class="spacer"></span><br><span class="spacer"></span>
+          <a href="#resume">Resumé</a>, <a href="https://www.github.com/ericadamski">Projects</a> &
+          <span class="spacer"></span><br><span class="spacer"></span>
+          a brief <a href="https://www.facebook.com/wikkidoo">Life</a> History
+        </span>
+      </h2>
     </div>
     <div class="filter"></div>
     <video autoplay
       loop
       muted
       class="fillWidth">
-      <source src="{{video}}"
-        type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+      <source src="/video/343647377.mp4"
+        type="video/mp4">Your browser does not support the video tag. I suggest you upgrade your browser.
     </video>
     <div class="poster hidden">
       <img src="img/backdrop.jpg"
@@ -53,6 +54,8 @@
       <a href="tel:+16138895298"><i class="fa fa-phone"></i> / eric </a>
       <a href="http://www.facebook.com/wikkidoo"><i class="fa fa-facebook-official"></i> / wikkidoo </a>
       <a href="https://www.instagram.com/wikkidoo/"><i class="fa fa-instagram"></i> / wikkidoo</a>
+      <a href="https://www.twitter.com/zealigan/"><i class="fa fa-twitter"></i> / zealigan</a>
+      <a href="https://www.github.com/ericadamski/"><i class="fa fa-github"></i> / ericadamski</a>
     </ul>
   </div>
 </section>
@@ -64,13 +67,13 @@
         <a class="accordion-toggle"
           data-toggle="collapse"
           data-parent=".resume"
-          href="/resume/#work"><h1 class="heading">Work Experience  <span id="work-arrow" class="arrow glyphicon glyphicon-menu-down"></span></h1></a>
+          href="#work"><h1 class="heading">Work Experience  <span id="work-arrow" class="arrow glyphicon glyphicon-menu-down"></span></h1></a>
       </div>
       <div id="work"
         class="accordion-body collapse in">
         <div class="work-experience accordion-inner">
-          <div ng-repeat="work in resume.workExperience">
-            <work-experience info="work"></work-experience>
+          <div *ngFor="let work of resume.experience">
+            <work-experience [info]="work"></work-experience>
           </div>
         </div>
       </div>
@@ -81,14 +84,14 @@
         <a class="accordion-toggle"
           data-toggle="collapse"
           data-parent=".resume"
-          href="/resume/#education"><h1 class="heading">Education  <span id="education-arrow" class="arrow glyphicon glyphicon-menu-down"></span></h1></a>
+          href="#education"><h1 class="heading">Education  <span id="education-arrow" class="arrow glyphicon glyphicon-menu-down"></span></h1></a>
       </div>
     </div>
     <div id="education"
       class="accordion-body collapse in">
       <div class="education accordion-inner">
-        <div ng-repeat="education in resume.educations">
-          <education info="education"></education>
+        <div *ngFor="let education of resume.education">
+          <education [info]="education"></education>
         </div>
       </div>
     </div>
@@ -98,15 +101,15 @@
         <a class="accordion-toggle"
           data-toggle="collapse"
           data-parent=".resume"
-          href="/resume/#skills"><h1 class="heading">Skills  <span id="skills-arrow" class="arrow glyphicon glyphicon-menu-down"></span></h1></a>
+          href="#skills"><h1 class="heading">Skills  <span id="skills-arrow" class="arrow glyphicon glyphicon-menu-down"></span></h1></a>
       </div>
     </div>
     <div id="skills"
       class="accordion-body collapse in">
       <div class="skills accodian-inner">
         <div class="skill-details"
-          ng-repeat="skill in resume.skills">
-          <skill info="skill"></skill>
+          *ngFor="let skill of resume.skills">
+          <skill [info]="skill"></skill>
         </div>
       </div>
     </div>
@@ -116,25 +119,25 @@
         <a class="accordion-toggle"
           data-toggle="collapse"
           data-parent=".resume"
-          href="/resume/#references"><h1 class="heading">References <span id="references-arrow" class="arrow glyphicon glyphicon-menu-down"></span></h1></a>
+          href="#references"><h1 class="heading">References <span id="references-arrow" class="arrow glyphicon glyphicon-menu-down"></span></h1></a>
       </div>
     </div>
     <div id="references"
       class="accordion-body collapse in">
       <div class="references accordion-inner">
         <div class="contact-info"
-          ng-repeat="contact in resume.references">
-          <reference info="contact"></reference>
+          *ngFor="let contact of resume.references">
+          <reference [info]="contact"></reference>
         </div>
       </div>
     </div>
   </div>
 </section>
-<section id="projects">
+<!-- <section id="projects">
   <div class="__outline">
     <div class="right-col">
       <h2 class="__title"> some boss projects </h2>
-      <!-- img2 -->
+      img2
       <div class="project pright">
         <h3 class="__title"></h3>
         <p class="__para"></p>
@@ -142,19 +145,19 @@
     </div>
     <div class="left-col">
       <div class="left-top-row">
-        <!-- img1 -->
+        img1
         <div class="project ptop">
           <h3 class="__title"></h3>
           <p class="__para"></p>
         </div>
       </div>
       <div class="left-bottom-row">
-        <!-- img3 -->
+        img3
         <div class="project pbottom">
           <h3 class="__title"></h3>
           <p class="__para"></p>
         </div>
-        <!-- img4 -->
+        img4
         <div class="project pleft">
           <h3 class="__title"></h3>
           <p class="__para"></p>
@@ -165,6 +168,4 @@
 </section>
 <section id="life-history">
   <div class="__outline"></div>
-</section>
-
-<script src="js/shared/video-management.js"></script>
+</section> -->

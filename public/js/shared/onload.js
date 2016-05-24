@@ -17,7 +17,7 @@ function reset() {
     elm.removeClass('is-down');
 }
 
-$(function() {
+$(function () {
   //reset();
-  window.scrollTo(0,0);
+  window.scrollTo(0, 0);
 });

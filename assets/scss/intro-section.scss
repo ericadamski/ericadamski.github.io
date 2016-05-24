@@ -1,50 +1,60 @@
 @import 'default';
 
 .intro {
-  min-height: 350px;
-  display: flex;
+  min-height    : 350px;
+  display       : flex;
   flex-direction: column;
-  width: 100%;
-  overflow: hidden;
-  padding: 10px;
-  align-items: center;
+  width         : 100%;
+  overflow      : hidden;
+  padding       : 10px;
+  align-items   : center;
 
   .contacting-me {
     width: 100%;
-
     @media only screen and (min-width: 800px) {
       width: 70%;
     }
 
     ul {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-items: center;
+      margin         : 0;
+      padding        : 0;
+      display        : flex;
+      flex-direction : row;
+      flex-wrap      : wrap;
+      align-items    : center;
       justify-content: center;
 
       a {
-        color: grey;
-        margin: 10px;
-        font-size: 1.25em;
+        color     : grey;
+        margin    : 10px;
+        font-size : 1.25em;
         text-align: center;
-        flex: 1 0 200px;
+        flex      : 1 0 200px;
 
         &:hover {
           i {
             &.fa-facebook-official {
               color: #3b5998;
             }
+
             &.fa-instagram {
               color: #5280A4;
             }
+
             &.fa-phone {
               color: #4CD964;
             }
+
             &.fa-envelope-o {
               color: #34AADC;
+            }
+
+            &.fa-twitter {
+              color: #4099FF;
+            }
+
+            &.fa-github {
+              color: #999;
             }
           }
         }

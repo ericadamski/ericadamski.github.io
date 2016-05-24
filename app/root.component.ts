@@ -1,13 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import {Routes, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
-import {HomeComponent} from './home/home.component';
 import {ResumeService} from './common/resume.service';
+import {ExperienceComponent} from './experience/experience.component';
+import {EducationComponent} from './education/education.component';
+import {SkillComponent} from './skill/skill.component';
+import {ReferenceComponent} from './reference/reference.component';
 
 @Component({
   selector: 'app',
   template: require('./root.component.html'),
   styles: [require('./root.component.css')],
-  directives: [ROUTER_DIRECTIVES],
+  directives: [
+    ROUTER_DIRECTIVES,
+    ExperienceComponent,
+    EducationComponent,
+    SkillComponent,
+    ReferenceComponent
+  ],
   providers: [
     ROUTER_PROVIDERS,
     ResumeService
@@ -28,14 +37,12 @@ export class RootComponent implements OnInit {
 
     var rand = Math.floor(Math.random() * (videos.length - 1));
 
-    console.log(rand);
-
     this.video = 'video/' + videos[rand] + '.mp4';
 
     this.resume = this._resumeService.get();
   }
 
   ngOnInit() {
-    alert(this.video);
+    // alert(this.video);
   }
 };

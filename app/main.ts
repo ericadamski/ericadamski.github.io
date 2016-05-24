@@ -8,7 +8,7 @@ import { enableProdMode } from '@angular/core';
 
 import { RootComponent } from './root.component';
 
-// if (environment.production) enableProdMode();
+enableProdMode();
 
 bootstrap(RootComponent, [
   ROUTER_PROVIDERS,
