@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css?family=Work+Sans");
+@import url("http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 100vw;
+  min-height: 100vh;
+  font-family: "Work Sans", sans-serif;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+}
