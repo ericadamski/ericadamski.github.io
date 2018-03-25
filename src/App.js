@@ -10,6 +10,31 @@ const colors = {
   pink: "#f9e0dc"
 };
 
+const Background = styled.div`
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-width: 100vw;
+  max-height: 100vh;
+  background: url("${props => props.background}");
+  background-position: center;
+  background-size: ${props => props.size};
+`;
+
+const ImageWrapper = styled.div`
+  box-sizing: border-box;
+  border-radius: 100%;
+  width: 14rem;
+  height: 14rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+`;
+
 const Page = styled.section`
   box-sizing: content-box;
   width: 100vw;
@@ -20,6 +45,8 @@ const Page = styled.section`
   align-items: center;
   justify-content: center;
   color: ${colors.black};
+
+  opacity: ${props => (props.fade ? 0.8 : 1)};
 `;
 
 const Bar = styled.div`
@@ -98,28 +125,6 @@ const MadeByBar = styled(({ className }) => (
   @media (min-width: 800px) {
     justify-content: flex-end;
   }
-`;
-
-const Background = styled.div`
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  background: url("${props => props.background}");
-`;
-
-const ImageWrapper = styled.div`
-  box-sizing: border-box;
-  border-radius: 100%;
-  width: 14rem;
-  height: 14rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
 `;
 
 const Picture = styled.img`
@@ -249,6 +254,11 @@ const funkyHover = css`
 const SpecialLink = styled.a`
   ${funkyHover};
   text-decoration: none;
+
+  &:active,
+  &:visited {
+    color: ${colors.black};
+  }
 `;
 
 const HoverUseful = styled(
@@ -288,28 +298,22 @@ const Name = styled.h1.attrs({ children: "Eric Adamski" })`
 `;
 
 export default class extends Component {
-  state = { background: null, repeat: false };
+  state = { background: null, size: false };
 
   render() {
     return (
-      <Page>
+      <Page fade={this.state.background !== null}>
         <MouseBar />
-        <Background
-          background={this.state.background}
-          repeat={this.state.repeat}
-        />
+        <Background background={this.state.background} size={this.state.size} />
         <Image />
         <Name
           onMouseEnter={() =>
             this.setState({
-              repeat: true,
               background:
                 "https://user-images.githubusercontent.com/6516758/37846336-bde54af6-2ea3-11e8-8401-2bab85e0a96d.png"
             })
           }
-          onMouseLeave={() =>
-            this.setState({ repeat: false, background: null })
-          }
+          onMouseLeave={() => this.setState({ background: null })}
         />
         {[
           [
@@ -324,25 +328,46 @@ export default class extends Component {
               onMouseEnter={() =>
                 this.setState({
                   background:
-                    "https://user-images.githubusercontent.com/6516758/37846336-bde54af6-2ea3-11e8-8401-2bab85e0a96d.png"
+                    "https://user-images.githubusercontent.com/6516758/37875588-7a3f9938-300f-11e8-9c08-105c6029797f.jpg",
+                  size: "contain"
                 })
               }
-              onMouseLeave={() => this.setState({ background: null })}
+              onMouseLeave={() =>
+                this.setState({ background: null, size: null })
+              }
             >
               my family
             </SpecialLink>,
             ". You can find some of my work here: ",
-            <SpecialLink key="atom">atom packages</SpecialLink>,
+            <SpecialLink key="atom" href="https://atom.io/users/ericadamski">
+              atom packages
+            </SpecialLink>,
             ", ",
-            <SpecialLink key="vscode">vs code extensions</SpecialLink>,
+            <SpecialLink
+              key="vscode"
+              href="https://marketplace.visualstudio.com/search?term=publisher%3A%22Eric%20Adamski%22&target=VSCode&category=All%20categories&sortBy=Relevance"
+            >
+              vs code extensions
+            </SpecialLink>,
             ", ",
-            <SpecialLink key="npm">npm packages</SpecialLink>,
+            <SpecialLink
+              key="npm"
+              href="https://www.npmjs.com/search?q=maintainer:ericadamski"
+            >
+              npm packages
+            </SpecialLink>,
             ", and explorations into the fundamentals of my Self on ",
-            <SpecialLink key="medium">Medium</SpecialLink>,
+            <SpecialLink key="medium" href="https://medium.com/@ericadamski">
+              Medium
+            </SpecialLink>,
             "."
           ]
         ].map((c, i) => (
-          <Paragraph key={i} number={i + 1}>
+          <Paragraph
+            fade={this.state.background !== null}
+            key={i}
+            number={i + 1}
+          >
             {c}
           </Paragraph>
         ))}
