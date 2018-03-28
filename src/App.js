@@ -33,6 +33,7 @@ const ImageWrapper = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  padding-top: 5rem;
 `;
 
 const Page = styled.section`
@@ -212,7 +213,7 @@ const Social = styled.div.attrs({
 
 const Image = styled(({ className }) => (
   <ImageWrapper className={className}>
-    <Picture src="https://user-images.githubusercontent.com/6516758/37844015-de51bf42-2e9c-11e8-9170-5b1ce820e1a7.jpg" />
+    <Picture src="https://user-images.githubusercontent.com/6516758/38046654-3463db3c-328e-11e8-8cd2-e37d6f92f099.jpg" />
   </ImageWrapper>
 ))``;
 
@@ -304,7 +305,10 @@ export default class extends Component {
     return (
       <Page fade={this.state.background !== null}>
         <MouseBar />
-        <Background background={this.state.background} size={this.state.size} />
+        <Background
+          background={this.state.background}
+          size={this.state.size ? this.state.size : undefined}
+        />
         <Image />
         <Name
           onMouseEnter={() =>
